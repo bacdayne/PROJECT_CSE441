@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "250812035015",
+    "firebase_url": "https://hoctothoahoc-bb41e-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "hoctothoahoc-bb41e",
+    "storage_bucket": "hoctothoahoc-bb41e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250812035015:android:5ac637b60fb921074073e2",
+        "android_client_info": {
+          "package_name": "com.example.hoahoc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDda6DjTCEBXNEO2LQf0Ym4qdlksSddE7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

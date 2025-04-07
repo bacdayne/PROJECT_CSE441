@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.hoahoc.ui.HomeFragment"
+        android:label="HỌC TỐT HÓA HỌC"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.example.hoahoc.ui.SettingFragment"
+        android:label="Setting"
+        tools:layout="@layout/fragment_setting" />
+
+    <fragment
+        android:id="@+id/nav_feedback"
+        android:name="com.example.hoahoc.ui.RatingFragment"
+        android:label="Rating"
+        tools:layout="@layout/fragment_rating" />
+
+    <fragment
+        android:id="@+id/nav_save"
+        android:name="com.example.hoahoc.ui.SaveFragment"
+        android:label="Save"
+        tools:layout="@layout/fragment_save" />
+
+
+</navigation>

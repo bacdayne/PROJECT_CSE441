@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".activity_baigiang">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_baigiang"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:background="#6A1B9A"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:text="HỌC TỐT HÓA HỌC"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+
+        <ImageView
+            android:id="@+id/icon_lab"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginEnd="16dp"
+            android:padding="10dp"
+            android:src="@drawable/flask_2" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <SearchView
+        android:id="@+id/search"
+        android:layout_width="392dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/search"
+        android:closeIcon="@drawable/searchne"
+        android:focusable="false"
+        android:iconifiedByDefault="false"
+        android:queryHint="Tìm kiếm..."
+        android:searchHintIcon="@null"
+        android:searchIcon="@drawable/searchne" />
+
+    <LinearLayout
+        android:id="@+id/class_selection_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_lop8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#F48FB1"
+            android:text="Lớp 8"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:cornerRadius="80dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            app:pressedTranslationZ="12dp"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_lop9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#DBD2D2"
+            android:text="Lớp 9"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:cornerRadius="80dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="20dp"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_baigiang"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp" />
+
+
+</LinearLayout>
