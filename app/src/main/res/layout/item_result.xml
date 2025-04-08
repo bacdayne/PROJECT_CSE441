@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@drawable/option_background"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:id="@+id/tvQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Câu 1: Nội dung câu hỏi"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:paddingBottom="5dp" />
+
+    <TextView
+        android:id="@+id/tvOptionA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="A. Đáp án A"
+        android:textSize="16sp"
+        android:textColor="#333333" />
+
+    <TextView
+        android:id="@+id/tvOptionB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="B. Đáp án B"
+        android:textSize="16sp"
+        android:textColor="#333333" />
+
+    <TextView
+        android:id="@+id/tvOptionC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="C. Đáp án C"
+        android:textSize="16sp"
+        android:textColor="#333333" />
+
+    <TextView
+        android:id="@+id/tvOptionD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="D. Đáp án D"
+        android:textSize="16sp"
+        android:textColor="#333333" />
+
+    <TextView
+        android:id="@+id/tvUserAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đáp án bạn chọn: A"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:paddingTop="5dp" />
+
+    <TextView
+        android:id="@+id/tvCorrectAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đáp án đúng: B"
+        android:textSize="16sp"
+        android:textColor="#333333" />
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kết quả: Đúng"
+        android:textSize="16sp"
+        android:paddingTop="5dp" />
+</LinearLayout>

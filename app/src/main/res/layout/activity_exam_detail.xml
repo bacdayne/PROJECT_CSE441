@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/gradient_background">
+
+    <!-- Tiêu đề -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:gravity="center"
+        android:background="@drawable/title_background"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/tvExamTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ĐỀ SỐ 1"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <!-- Thông tin -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="#FFFFFF"
+        android:layout_marginTop="10dp"
+        android:elevation="4dp"
+        android:layout_marginBottom="10dp"
+        android:clipToPadding="false">
+
+        <TextView
+            android:id="@+id/tvQuestionCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="40 câu"
+            android:textSize="16sp"
+            android:textColor="#333333" />
+
+        <TextView
+            android:id="@+id/tvTimer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="30:00"
+            android:textSize="16sp"
+            android:textColor="#D32F2F"
+            android:gravity="end"
+            android:fontFamily="sans-serif-medium" />
+    </LinearLayout>
+
+    <!-- Câu hỏi -->
+    <TextView
+        android:id="@+id/tvQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Câu 1: Đây là câu hỏi mẫu?"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:padding="15dp"
+        android:layout_marginTop="10dp"
+        android:elevation="4dp" />
+
+    <!-- Đáp án A -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:background="@drawable/option_background"
+        android:layout_marginTop="10dp"
+        android:elevation="2dp">
+
+        <Button
+            android:id="@+id/btnSelectA"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="A"
+            android:background="@drawable/option_button"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:id="@+id/tvOptionA"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="A. Đáp án A"
+            android:textSize="16sp"
+            android:textColor="#333333" />
+    </LinearLayout>
+
+    <!-- Đáp án B -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:background="@drawable/option_background"
+        android:layout_marginTop="10dp"
+        android:elevation="2dp">
+
+        <Button
+            android:id="@+id/btnSelectB"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="B"
+            android:minHeight="48dp"
+            android:background="@drawable/option_button"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:id="@+id/tvOptionB"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="B. Đáp án B"
+            android:textSize="16sp"
+            android:textColor="#333333" />
+    </LinearLayout>
+
+    <!-- Đáp án C -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:background="@drawable/option_background"
+        android:layout_marginTop="10dp"
+        android:elevation="2dp">
+
+        <Button
+            android:id="@+id/btnSelectC"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="C"
+            android:minHeight="48dp"
+            android:background="@drawable/option_button"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:id="@+id/tvOptionC"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="C. Đáp án C"
+            android:textSize="16sp"
+            android:textColor="#333333" />
+    </LinearLayout>
+
+    <!-- Đáp án D -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:background="@drawable/option_background"
+        android:layout_marginTop="10dp"
+        android:elevation="2dp">
+
+        <Button
+            android:id="@+id/btnSelectD"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="D"
+            android:background="@drawable/option_button"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:id="@+id/tvOptionD"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="D. Đáp án D"
+            android:textSize="16sp"
+            android:textColor="#333333" />
+    </LinearLayout>
+
+    <!-- Nút điều hướng -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/btnPrevious"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Câu trước"
+            android:background="@drawable/button_background"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp"
+            android:elevation="4dp" />
+
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dừng"
+            android:background="@drawable/stop_button_background"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp"
+            android:elevation="4dp" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Câu tiếp"
+            android:background="@drawable/button_background"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:elevation="4dp" />
+    </LinearLayout>
+</LinearLayout>

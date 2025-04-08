@@ -6,14 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.example.hoahoc.MainActivity;
-import com.example.hoahoc.activity_baigiang;
+import com.example.hoahoc.BaiGiangActivity;
+import com.example.hoahoc.TracNghiemActivity;
 import com.example.hoahoc.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -30,9 +28,14 @@ public class HomeFragment extends Fragment {
         imgtracnghiem = binding.imgTracnghiem;
 
         imgbaigiang.setOnClickListener(e->{
-            Intent intent = new Intent(getActivity(), activity_baigiang.class);
+            Intent intent = new Intent(getActivity(), BaiGiangActivity.class);
             startActivity(intent);
             });
+
+        imgtracnghiem.setOnClickListener(e->{
+            Intent intent = new Intent(getActivity(), TracNghiemActivity.class);
+            startActivity(intent);
+        });
 
 //        imgtracnghiem.setOnClickListener(e->{
 //            Intent intent = new Intent(getActivity(), MainActivity.class);

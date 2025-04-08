@@ -1,0 +1,370 @@
+exam_id,question_number,question_text,option_a,option_b,option_c,option_d,correct_answer
+1,1,Kim loại nào sau đây là kim loại kiềm?,Fe,Cs,Be,Mg,B
+1,2,Nguyên tố nào có số proton là 8?,O,N,F,Ne,A
+1,3,Hợp chất nào là axit?,NaOH,HCl,KCl,CaCO3,B
+1,4,Chất nào sau đây là bazơ?,H2SO4,NaOH,CO2,HCl,B
+1,5,Nguyên tố nào thuộc nhóm VIIA?,Cl,Na,Mg,Ca,A
+1,6,Kim loại nào dẫn điện tốt nhất?,Cu,Fe,Al,Zn,A
+1,7,Hợp chất nào là muối?,NaCl,HNO3,KOH,H2SO4,A
+1,8,Nguyên tố nào có số neutron lớn hơn proton?,H,He,Li,O,D
+1,9,Chất nào không tan trong nước?,NaCl,AgCl,KNO3,NH4Cl,B
+1,10,Phản ứng nào là phản ứng oxi hóa khử?,Na + Cl2 → NaCl,HCl + NaOH → NaCl + H2O,CaCO3 → CaO + CO2,NaCl + AgNO3 → AgCl + NaNO3,A
+1,11,Kim loại nào phản ứng với nước ở nhiệt độ thường?,Na,Fe,Cu,Ag,A
+1,12,Hợp chất nào có liên kết cộng hóa trị?,NaCl,H2O,KBr,CaO,B
+1,13,Nguyên tố nào có bán kính nguyên tử lớn nhất?,Li,Na,K,Rb,D
+1,14,Chất nào là khí hiếm?,He,O2,N2,Cl2,A
+1,15,Phản ứng cháy tạo ra sản phẩm nào?,CO2 và H2O,HCl,NaCl,O2,A
+1,16,Hợp chất nào có tính lưỡng tính?,Al2O3,Na2O,CaO,CO2,A
+1,17,Nguyên tố nào thuộc nhóm IA?,K,Ca,Mg,Al,A
+1,18,Chất nào là chất điện li mạnh?,HCl,CH3COOH,NH3,H2O,A
+1,19,Kim loại nào không phản ứng với dung dịch HCl?,Cu,Fe,Zn,Mg,A
+1,20,Hợp chất nào có công thức là H2SO4?,Axit sunfuric,Axit nitric,Axit clohidric,Axit photphoric,A
+1,21,Nguyên tố nào có số oxi hóa cao nhất là +7?,Cl,S,P,N,A
+1,22,Chất nào là oxit axit?,SO2,Na2O,CaO,MgO,A
+1,23,Hợp chất nào tan trong nước tạo dung dịch kiềm?,NaOH,HCl,H2SO4,NaCl,A
+1,24,Nguyên tố nào có độ âm điện lớn nhất?,F,O,Cl,N,A
+1,25,Kim loại nào bị oxi hóa trong không khí?,Fe,Au,Ag,Pt,A
+1,26,Chất nào là đơn chất?,O2,H2O,NaCl,CO2,A
+1,27,Hợp chất nào có liên kết ion?,NaCl,CO2,CH4,H2O,A
+1,28,Nguyên tố nào thuộc chu kỳ 3?,Na,Ne,F,O,A
+1,29,Chất nào là chất khử trong phản ứng?,H2,O2,Cl2,CO2,A
+1,30,Phản ứng nào là phản ứng thế?,Zn + CuSO4 → ZnSO4 + Cu,HCl + NaOH → NaCl + H2O,CaCO3 → CaO + CO2,NaCl + AgNO3 → AgCl + NaNO3,A
+1,31,Kim loại nào có nhiệt độ nóng chảy thấp nhất?,Hg,Fe,Cu,Al,A
+1,32,Hợp chất nào có tính bazơ yếu?,NH3,NaOH,KOH,Ca(OH)2,A
+1,33,Nguyên tố nào thuộc nhóm VA?,N,O,F,Ne,A
+1,34,Chất nào là oxit bazơ?,Na2O,SO2,CO2,P2O5,A
+1,35,Hợp chất nào không dẫn điện?,CH4,NaCl,HCl,KOH,A
+1,36,Nguyên tố nào có cấu hình electron ngoài cùng là ns²np⁵?,Cl,Na,Mg,Ca,A
+1,37,Kim loại nào phản ứng với dung dịch H2SO4 loãng?,Zn,Cu,Ag,Au,A
+1,38,Hợp chất nào là este?,CH3COOCH3,CH3COOH,CH3OH,CH3CHO,A
+1,39,Chất nào là ankan?,CH4,C2H4,C2H2,C6H6,A
+1,40,Nguyên tố nào có số khối là 16?,O,S,P,N,A
+
+2,1,Kim loại nào sau đây là kim loại kiềm?,Na,K,Cs,Rb,B
+2,2,Nguyên tố nào có số proton là 9?,O,N,F,Ne,C
+2,3,Hợp chất nào là bazơ?,NaOH,HCl,KCl,Na2CO3,A
+2,4,Chất nào là axit?,HNO3,NaOH,KOH,CaCO3,A
+2,5,Nguyên tố nào thuộc nhóm VIIA?,Cl,F,I,Br,A
+2,6,Kim loại nào dẫn điện tốt nhất?,Cu,Ag,Al,Fe,B
+2,7,Hợp chất nào là muối?,NaCl,H2O,NaOH,HCl,A
+2,8,Nguyên tố nào có số neutron lớn hơn proton?,O,He,Li,N,D
+2,9,Chất nào không tan trong nước?,AgCl,NaCl,NaOH,KNO3,A
+2,10,Phản ứng nào là phản ứng oxi hóa khử?,H2 + Cl2 → 2HCl,Na + H2O → NaOH + H2,CaCO3 → CaO + CO2,NaCl + AgNO3 → AgCl + NaNO3,B
+2,11,Kim loại nào phản ứng mạnh với nước?,Na,K,Ca,Fe,A
+2,12,Hợp chất nào có liên kết ion?,NaCl,H2O,CaCO3,CO2,A
+2,13,Nguyên tố nào có bán kính nguyên tử nhỏ nhất?,H,He,Li,Na,D
+2,14,Chất nào là khí hiếm?,Ne,Ar,Kr,Xe,A
+2,15,Phản ứng cháy tạo ra sản phẩm nào?,CO2 và H2O,CO,H2,HCl,A
+2,16,Hợp chất nào có tính lưỡng tính?,Al2O3,Na2O,SO3,CO2,A
+2,17,Nguyên tố nào thuộc nhóm IA?,Li,Na,K,Cs,A
+2,18,Chất nào là chất điện li mạnh?,HCl,NaOH,KOH,H2O,B
+2,19,Kim loại nào không phản ứng với dung dịch H2SO4?,Cu,Fe,Zn,Ag,A
+2,20,Hợp chất nào có công thức là H2SO4?,Axit sunfuric,Axit clohidric,Axit photphoric,Axit nitric,A
+2,21,Nguyên tố nào có số oxi hóa cao nhất là +6?,S,P,O,N,A
+2,22,Chất nào là oxit bazơ?,Na2O,SO3,CaO,MgO,A
+2,23,Hợp chất nào tan trong nước tạo dung dịch axit?,HCl,NaOH,KOH,CaCO3,A
+2,24,Nguyên tố nào có độ âm điện lớn nhất?,F,O,Cl,N,A
+2,25,Kim loại nào bị oxi hóa trong không khí?,Fe,Ag,Au,Cu,A
+2,26,Chất nào là đơn chất?,H2,O2,NaCl,CO2,A
+2,27,Hợp chất nào có liên kết cộng hóa trị?,H2O,NaCl,CO2,CH4,B
+2,28,Nguyên tố nào thuộc chu kỳ 4?,Na,Cl,K,Ar,B
+2,29,Chất nào là chất khử trong phản ứng?,H2,O2,Cl2,CO2,A
+2,30,Phản ứng nào là phản ứng thế?,Zn + CuSO4 → ZnSO4 + Cu,HCl + NaOH → NaCl + H2O,CaCO3 → CaO + CO2,NaCl + AgNO3 → AgCl + NaNO3,A
+2,31,Kim loại nào có nhiệt độ nóng chảy cao nhất?,W,Fe,Cu,Ni,A
+2,32,Hợp chất nào có tính bazơ mạnh?,NaOH,Na2CO3,KOH,Ca(OH)2,A
+2,33,Nguyên tố nào thuộc nhóm VIIA?,Cl,F,I,Br,A
+2,34,Chất nào là oxit axit?,SO2,Na2O,CaO,CO2,A
+2,35,Hợp chất nào không dẫn điện?,CH4,NaCl,KOH,NaOH,A
+2,36,Nguyên tố nào có cấu hình electron ngoài cùng là ns²np³?,N,P,As,S,A
+2,37,Kim loại nào phản ứng với dung dịch HCl loãng?,Zn,Cu,Ag,Al,A
+2,38,Hợp chất nào là este?,CH3COOCH3,CH3COOH,CH3OH,CH3CHO,A
+2,39,Chất nào là ankan?,CH4,C2H6,C3H8,C4H10,A
+2,40,Nguyên tố nào có số khối là 14?,C,Si,Ge,S,A
+
+3,1,Kim loại nào là kim loại kiềm?,Na,K,Cs,Rb,B
+3,2,Nguyên tố nào có số proton là 7?,O,N,F,Ne,C
+3,3,Chất nào là axit?,H2SO4,NaOH,NaCl,CO2,A
+3,4,Chất nào là bazơ?,NaOH,H2SO4,KOH,HCl,B
+3,5,Nguyên tố nào thuộc nhóm VIIA?,Cl,Na,Mg,Ca,A
+3,6,Kim loại nào dẫn điện tốt nhất?,Cu,Fe,Ag,Zn,B
+3,7,Hợp chất nào là muối?,NaCl,KNO3,H2O,CO2,A
+3,8,Phản ứng nào là phản ứng oxi hóa khử?,Na + Cl2 → NaCl,HCl + NaOH → NaCl + H2O,Na2CO3 → Na2O + CO2,NaCl + AgNO3 → AgCl + NaNO3,A
+3,9,Chất nào không tan trong nước?,NaCl,AgCl,KNO3,CuSO4,B
+3,10,Nguyên tố nào có số neutron lớn hơn proton?,H,He,Li,O,D
+3,11,Chất nào không dẫn điện?,NaCl,CuSO4,HCl,NaOH,A
+3,12,Chất nào là axit yếu?,HCl,CH3COOH,NaOH,KOH,B
+3,13,Giải bài toán: Tính khối lượng CO2 sinh ra khi đốt cháy 4,4g CH4 trong oxi. (Công thức: CH4 + 2O2 → CO2 + 2H2O),A. 5,5g,B. 8,8g,C. 22g,D. 44g,B
+3,14,Chất nào là khí hiếm?,He,Ne,Xe,Ar,A
+3,15,Phản ứng nào là phản ứng trung hòa?,NaOH + HCl → NaCl + H2O,NaCl + H2O → NaOH + HCl,Fe2O3 + H2 → Fe + H2O,CaO + CO2 → CaCO3,A
+3,16,Nguyên tố nào có độ âm điện lớn nhất?,F,O,Cl,N,A
+3,17,Kim loại nào phản ứng với nước ở nhiệt độ thường?,Na,K,Ca,Fe,A
+3,18,Hợp chất nào có liên kết ion?,NaCl,H2O,CO2,CH4,A
+3,19,Nguyên tố nào có bán kính nguyên tử lớn nhất?,H,Li,Na,K,D
+3,20,Chất nào là dung dịch kiềm?,NaOH,H2SO4,KOH,NaCl,A
+3,21,Giải bài toán: Tính số mol của HCl có trong 25ml dung dịch HCl có nồng độ 0,5M,A. 0,0125 mol,B. 0,025 mol,C. 0,05 mol,D. 0,075 mol,B
+3,22,Hợp chất nào có tính bazơ mạnh?,NaOH,KOH,Ca(OH)2,Al(OH)3,A
+3,23,Nguyên tố nào có cấu hình electron ngoài cùng là ns²np⁵?,F,Cl,Br,I,A
+3,24,Chất nào là chất khử trong phản ứng?,H2,O2,Cl2,CO2,A
+3,25,Phản ứng nào là phản ứng thế?,Zn + CuSO4 → ZnSO4 + Cu,HCl + NaOH → NaCl + H2O,NaCl + AgNO3 → AgCl + NaNO3,CaCO3 → CaO + CO2,A
+3,26,Giải bài toán: Tính thể tích H2 (ở điều kiện chuẩn) sinh ra khi đốt cháy 10g Mg trong oxi. (Mg + O2 → MgO),A. 6,24 lít,B. 12,48 lít,C. 22,4 lít,D. 33,6 lít,C
+3,27,Hợp chất nào có liên kết cộng hóa trị?,CO2,H2O,NaCl,Fe2O3,B
+3,28,Nguyên tố nào thuộc chu kỳ 2?,C,O,N,F,A
+3,29,Chất nào là chất điện li mạnh?,HCl,CH3COOH,NaOH,KOH,A
+3,30,Kim loại nào bị oxi hóa trong không khí?,Fe,Cu,Zn,Ag,A
+3,31,Giải bài toán: Tính số mol của NaOH trong 20g dung dịch NaOH 10%. (Biết molar mass NaOH = 40g/mol),A. 0,05 mol,B. 0,1 mol,C. 0,15 mol,D. 0,2 mol,B
+3,32,Nguyên tố nào có bán kính nguyên tử nhỏ nhất?,F,O,Ne,He,D
+3,33,Hợp chất nào là este?,CH3COOCH3,CH3COOH,CH3OH,CH3CHO,A
+3,34,Kim loại nào phản ứng với dung dịch H2SO4 loãng?,Zn,Cu,Ag,Fe,A
+3,35,Giải bài toán: Tính thể tích CO2 tạo ra khi đốt cháy 22,4g CH4. (Biết phương trình phản ứng: CH4 + 2O2 → CO2 + 2H2O), 22,4 lít,44,8 lít,33,6 lít,12,4 lít,A
+3,36,Nguyên tố nào thuộc nhóm VIA?,O,S,Se,Te,A
+3,37,Chất nào là chất khử trong phản ứng?,Na,Cl,O2,H2O,A
+3,38,Phản ứng nào là phản ứng thế?,Zn + CuSO4 → ZnSO4 + Cu,HCl + NaOH → NaCl + H2O,NaCl + AgNO3 → AgCl + NaNO3,CaCO3 → CaO + CO2,A
+3,39,Nguyên tố nào có cấu hình electron ngoài cùng là ns²np²?,C,Si,Ge,S,A
+3,40,Kim loại nào có nhiệt độ nóng chảy thấp nhất?,Hg,Fe,Cu,Zn,A
+
+
+4,1,Kim loại nào là kim loại kiềm?,Na,K,Cs,Rb,A
+4,2,Giải bài toán: Tính số mol của NaOH có trong 50ml dung dịch NaOH 2M,A. 0.1 mol,B. 0.05 mol,C. 0.025 mol,D. 0.02 mol,B
+4,3,Nguyên tố nào có số proton là 11?,Na,Ne,Li,O,A
+4,4,Chất nào là axit mạnh?,HCl,H2SO4,NaOH,CO2,A
+4,5,Kim loại nào phản ứng mạnh với nước?,Na,K,Ca,Fe,B
+4,6,Nguyên tố nào có độ âm điện lớn nhất?,F,O,Cl,N,A
+4,7,Chất nào là muối?,NaCl,HCl,NaOH,CO2,A
+4,8,Giải bài toán: Tính khối lượng K2SO4 cần dùng để tạo ra 1,5mol dung dịch 2M K2SO4,A. 3.5g,B. 7.0g,C. 14.0g,D. 28.0g,B
+4,9,Kim loại nào dẫn điện tốt nhất?,Cu,Ag,Zn,Fe,B
+4,10,Nguyên tố nào thuộc nhóm VIIA?,Cl,F,I,Br,A
+4,11,Chất nào là dung dịch kiềm?,NaOH,H2SO4,KOH,NaCl,A
+4,12,Phản ứng nào là phản ứng oxi hóa khử?,Na + Cl2 → NaCl,CaCO3 → CaO + CO2,HCl + NaOH → NaCl + H2O,NaCl + AgNO3 → AgCl + NaNO3,A
+4,13,Giải bài toán: Tính thể tích H2O (lít) cần để pha chế dung dịch HCl 1M từ dung dịch HCl 2M,A. 0.5 lít,B. 1 lít,C. 1.5 lít,D. 2 lít,B
+4,14,Kim loại nào có nhiệt độ nóng chảy thấp nhất?,Hg,Fe,Cu,Zn,A
+4,15,Chất nào không tan trong nước?,NaCl,AgCl,KNO3,NaOH,B
+4,16,Chất nào là khí hiếm?,He,Ne,Ar,Kr,A
+4,17,Giải bài toán: Tính số mol của NaOH có trong 25ml dung dịch NaOH 0.4M,0.01 mol,0.025 mol,0.05 mol,0.1 mol,B
+4,18,Chất nào là đơn chất?,O2,H2O,NaCl,CO2,A
+4,19,Hợp chất nào có liên kết ion?,NaCl,CO2,H2O,CH4,A
+4,20,Giải bài toán: Tính thể tích CO2 sinh ra từ 0.4 mol CH4 đốt cháy trong oxi (Biết phương trình: CH4 + 2O2 → CO2 + 2H2O),8.96 lít,12.4 lít,22.4 lít,33.6 lít,B
+4,21,Chất nào là bazơ?,NaOH,KOH,H2SO4,CO2,B
+4,22,Kim loại nào không phản ứng với H2SO4 loãng?,Cu,Zn,Fe,Na,A
+4,23,Hợp chất nào có tính lưỡng tính?,Al2O3,Na2O,CaO,CO2,A
+4,24,Giải bài toán: Tính số mol của HCl trong 250ml dung dịch HCl 0.6M,A. 0.15 mol,B. 0.06 mol,C. 0.03 mol,D. 0.01 mol,B
+4,25,Nguyên tố nào có cấu hình electron ngoài cùng là ns²np⁵?,Cl,F,O,N,A
+4,26,Chất nào là muối?,NaCl,CuSO4,KOH,H2SO4,A
+4,27,Hợp chất nào là este?,CH3COOCH3,CH3COOH,CH3OH,CH3CHO,A
+4,28,Giải bài toán: Tính số mol của CaCO3 trong 10g CaCO3 (Biết molar mass của CaCO3 là 100g/mol),A. 0.1 mol,B. 0.2 mol,C. 0.3 mol,D. 0.5 mol,A
+4,29,Kim loại nào bị oxi hóa trong không khí?,Fe,Cu,Zn,Ag,A
+4,30,Giải bài toán: Tính thể tích H2 sinh ra khi đốt cháy 10g Mg trong oxi (Biết Mg + O2 → MgO),A. 6.24 lít,B. 12.48 lít,C. 22.4 lít,D. 33.6 lít,B
+4,31,Nguyên tố nào có bán kính nguyên tử lớn nhất?,H,Li,Na,K,D
+4,32,Hợp chất nào không dẫn điện?,CH4,NaCl,NaOH,KOH,A
+4,33,Phản ứng nào là phản ứng trung hòa?,NaOH + HCl → NaCl + H2O,H2O + CO2 → H2CO3,Fe + HCl → FeCl2 + H2,Ca + O2 → CaO,A
+4,34,Hợp chất nào là oxit bazơ?,Na2O,SO2,CaO,MgO,A
+4,35,Giải bài toán: Tính số mol của NaOH trong dung dịch NaOH có nồng độ 0.5M trong 100ml,A. 0.05 mol,B. 0.1 mol,C. 0.2 mol,D. 0.25 mol,B
+4,36,Chất nào là khí hiếm?,Ar,Ne,Kr,Xe,B
+4,37,Nguyên tố nào thuộc chu kỳ 2?,C,O,N,F,A
+4,38,Giải bài toán: Tính khối lượng của NaCl sinh ra khi cho 2g Na tác dụng với Cl2,A. 4.2g,B. 6g,C. 2g,D. 3g,B
+4,39,Nguyên tố nào có bán kính nguyên tử nhỏ nhất?,F,O,Cl,H,A
+4,40,Kim loại nào dẫn điện tốt nhất?,Cu,Ag,Fe,Au,B
+
+5,1,Kim loại nào là kim loại kiềm?,Na,K,Cs,Rb,A
+5,2,Nguyên tố nào có số proton là 12?,Na,Mg,Al,Si,C
+5,3,Chất nào là axit mạnh?,HCl,H2SO4,NaOH,CO2,A
+5,4,Kim loại nào phản ứng mạnh với nước?,Na,K,Ca,Fe,B
+5,5,Nguyên tố nào thuộc nhóm VIIA?,Cl,F,Br,I,A
+5,6,Hợp chất nào là muối?,NaCl,NaOH,CO2,H2O,A
+5,7,Giải bài toán: Tính khối lượng O2 cần để đốt cháy 8g CH4. (Biết phương trình: CH4 + 2O2 → CO2 + 2H2O),A. 4g,B. 8g,C. 16g,D. 32g,B
+5,8,Phản ứng nào là phản ứng oxi hóa khử?,Na + Cl2 → NaCl,CaCO3 → CaO + CO2,HCl + NaOH → NaCl + H2O,NaCl + AgNO3 → AgCl + NaNO3,A
+5,9,Giải bài toán: Tính thể tích CO2 (ở điều kiện tiêu chuẩn) sinh ra từ 0.5 mol CH4 đốt cháy trong oxi (Biết phương trình phản ứng: CH4 + 2O2 → CO2 + 2H2O),A. 11.2 lít,B. 22.4 lít,C. 33.6 lít,D. 44.8 lít,B
+5,10,Chất nào là bazơ?,NaOH,H2SO4,KOH,CO2,B
+5,11,Giải bài toán: Tính số mol của NaOH trong 200ml dung dịch NaOH 0.3M,A. 0.06 mol,B. 0.3 mol,C. 0.02 mol,D. 0.05 mol,A
+5,12,Nguyên tố nào có độ âm điện lớn nhất?,F,O,Cl,N,A
+5,13,Giải bài toán: Tính khối lượng NaCl cần dùng để tạo ra 1.0mol dung dịch NaCl 1M từ nước sạch, A. 58.5g,B. 23g,C. 35.5g,D. 74.5g,A
+5,14,Hợp chất nào có liên kết cộng hóa trị?,NaCl,CO2,H2O,Fe2O3,B
+5,15,Nguyên tố nào có cấu hình electron ngoài cùng là ns²np⁶?,F,O,Cl,N,A
+5,16,Kim loại nào không phản ứng với dung dịch HCl?,Cu,Zn,Fe,Na,A
+5,17,Giải bài toán: Tính thể tích H2 sinh ra từ 0.2 mol HCl khi cho tác dụng với kẽm, A. 4.48 lít,B. 11.2 lít,C. 5.6 lít,D. 22.4 lít,A
+5,18,Kim loại nào dẫn điện tốt nhất?,Cu,Fe,Ag,Zn,B
+5,19,Giải bài toán: Tính số mol của NaOH trong dung dịch NaOH có nồng độ 2M trong 50ml,A. 0.1 mol,B. 0.05 mol,C. 0.025 mol,D. 0.02 mol,B
+5,20,Kim loại nào phản ứng với nước ở nhiệt độ thường?,Na,K,Ca,Fe,A
+5,21,Hợp chất nào là muối?,NaCl,HCl,NaOH,CO2,A
+5,22,Chất nào là chất điện li mạnh?,NaCl,CH3COOH,NH3,H2O,A
+5,23,Giải bài toán: Tính thể tích O2 cần để đốt cháy 5g Mg trong oxi (Biết phương trình: Mg + O2 → MgO),A. 1.12 lít,B. 2.24 lít,C. 4.48 lít,D. 6.24 lít,B
+5,24,Nguyên tố nào có bán kính nguyên tử lớn nhất?,Li,Na,K,Rb,D
+5,25,Kim loại nào có nhiệt độ nóng chảy thấp nhất?,Hg,Fe,Cu,Zn,A
+5,26,Hợp chất nào có tính lưỡng tính?,Al2O3,Na2O,CaO,CO2,A
+5,27,Nguyên tố nào có bán kính nguyên tử nhỏ nhất?,F,O,Cl,H,D
+5,28,Giải bài toán: Tính số mol của K2SO4 cần để tạo ra 0.5mol dung dịch 2M K2SO4,A. 0.5 mol,B. 1 mol,C. 2 mol,D. 0.25 mol,B
+5,29,Nguyên tố nào có độ âm điện lớn nhất?,F,O,Cl,N,A
+5,30,Chất nào là dung dịch kiềm?,NaOH,H2SO4,KOH,NaCl,A
+5,31,Giải bài toán: Tính số mol của HCl trong dung dịch HCl 0.5M trong 100ml,A. 0.05 mol,B. 0.1 mol,C. 0.02 mol,D. 0.025 mol,A
+5,32,Nguyên tố nào có số khối là 16?,O,S,P,N,A
+5,33,Chất nào là khí hiếm?,He,Ne,Ar,Kr,A
+5,34,Giải bài toán: Tính thể tích CO2 (ở điều kiện tiêu chuẩn) khi đốt cháy 10g CH4 trong oxi,A. 22.4 lít,B. 44.8 lít,C. 33.6 lít,D. 11.2 lít,B
+5,35,Nguyên tố nào có cấu hình electron ngoài cùng là ns²np³?,N,P,As,S,A
+5,36,Giải bài toán: Tính khối lượng NaOH cần để trung hòa 100ml dung dịch HCl 1M,A. 4g,B. 5g,C. 10g,D. 2g,A
+5,37,Kim loại nào có nhiệt độ nóng chảy thấp nhất?,Hg,Fe,Cu,Zn,A
+5,38,Giải bài toán: Tính số mol của NaOH trong 300ml dung dịch NaOH 0.5M,A. 0.15 mol,B. 0.25 mol,C. 0.05 mol,D. 0.1 mol,B
+5,39,Hợp chất nào không dẫn điện?,CH4,NaCl,NaOH,KOH,A
+5,40,Nguyên tố nào có bán kính nguyên tử nhỏ nhất?,F,O,Cl,H,D
+6,1,Kim loại nào là kim loại kiềm?,Na,K,Cs,Rb,A
+6,2,Nguyên tố nào có số proton là 9?,F,Ne,O,C,A
+6,3,Chất nào là axit mạnh?,HCl,H2SO4,NaOH,CO2,A
+6,4,Nguyên tố nào thuộc nhóm VIIA?,Cl,F,Br,I,A
+6,5,Kim loại nào phản ứng mạnh với nước?,Na,K,Ca,Fe,B
+6,6,Hợp chất nào là muối?,NaCl,NaOH,CO2,H2O,A
+6,7,Tính thể tích H2 sinh ra khi cho 0.1mol Na tác dụng với nước. (Biết phương trình phản ứng: 2Na + 2H2O → 2NaOH + H2),1.12 lít,2.24 lít,4.48 lít,11.2 lít,B
+6,8,Chất nào là chất điện li mạnh?,NaCl,H2SO4,KOH,NaOH,A
+6,9,Giải bài toán: Tính số mol NaOH có trong 250ml dung dịch NaOH 2M,A. 0.5 mol,B. 0.25 mol,C. 0.75 mol,D. 0.1 mol,B
+6,10,Giải bài toán: Tính thể tích CO2 sinh ra khi đốt cháy 2g CH4 trong oxi. (Biết phương trình: CH4 + 2O2 → CO2 + 2H2O),A. 11.2 lít,B. 22.4 lít,C. 33.6 lít,D. 44.8 lít,B
+6,11,Nguyên tố nào có độ âm điện lớn nhất?,F,O,Cl,N,A
+6,12,Kim loại nào dẫn điện tốt nhất?,Cu,Ag,Zn,Fe,B
+6,13,Giải bài toán: Tính khối lượng NaOH cần thiết để trung hòa 50ml dung dịch HCl 1M,A. 2g,B. 5g,C. 10g,D. 0.5g,A
+6,14,Nguyên tố nào có bán kính nguyên tử nhỏ nhất?,O,F,Cl,H,A
+6,15,Kim loại nào không phản ứng với H2SO4 loãng?,Cu,Fe,Zn,Na,A
+6,16,Giải bài toán: Tính số mol của K2SO4 trong 200g K2SO4,A. 0.5 mol,B. 1 mol,C. 2 mol,D. 0.25 mol,B
+6,17,Chất nào là muối?,NaCl,CuSO4,NaOH,HCl,A
+6,18,Hợp chất nào có tính lưỡng tính?,Al2O3,Na2O,CaO,CO2,A
+6,19,Giải bài toán: Tính thể tích CO2 cần thiết để đốt cháy 4g CH4 trong oxi (Biết phương trình phản ứng: CH4 + 2O2 → CO2 + 2H2O),A. 6.24 lít,B. 22.4 lít,C. 44.8 lít,D. 33.6 lít,B
+6,20,Giải bài toán: Tính số mol của NaOH trong 100ml dung dịch NaOH 3M,A. 0.3 mol,B. 0.5 mol,C. 0.1 mol,D. 0.2 mol,A
+6,21,Kim loại nào có nhiệt độ nóng chảy thấp nhất?,Hg,Fe,Cu,Zn,A
+6,22,Hợp chất nào có liên kết cộng hóa trị?,NaCl,H2O,CO2,Fe2O3,B
+6,23,Nguyên tố nào có bán kính nguyên tử lớn nhất?,Li,Na,K,Rb,D
+6,24,Kim loại nào phản ứng với nước ở nhiệt độ thường?,Na,K,Ca,Fe,A
+6,25,Giải bài toán: Tính khối lượng của NaCl sinh ra khi cho 4g Na tác dụng với Cl2,A. 7g,B. 4.5g,C. 9g,D. 8g,A
+6,26,Hợp chất nào không dẫn điện?,CH4,NaCl,NaOH,KOH,A
+6,27,Chất nào là ankan?,CH4,C2H4,C2H2,C6H6,A
+6,28,Giải bài toán: Tính thể tích H2O (lít) cần để pha chế dung dịch HCl 1M từ dung dịch HCl 2M,A. 0.5 lít,B. 1 lít,C. 2 lít,D. 3 lít,A
+6,29,Nguyên tố nào có cấu hình electron ngoài cùng là ns²np³?,N,P,As,S,A
+6,30,Hợp chất nào là muối?,NaCl,HCl,NaOH,CO2,A
+6,31,Nguyên tố nào có số oxi hóa cao nhất là +7?,Cl,S,P,N,A
+6,32,Hợp chất nào có tính bazơ mạnh?,NaOH,KOH,Ca(OH)2,Al(OH)3,A
+6,33,Giải bài toán: Tính số mol của NaOH trong dung dịch NaOH có nồng độ 0.4M trong 100ml,A. 0.04 mol,B. 0.1 mol,C. 0.2 mol,D. 0.5 mol,B
+6,34,Chất nào là khí hiếm?,He,Ne,Ar,Xe,A
+6,35,Kim loại nào phản ứng với dung dịch HCl?,Cu,Zn,Fe,Na,A
+6,36,Giải bài toán: Tính số mol của NaCl trong 500g NaCl,A. 8.5 mol,B. 9 mol,C. 10 mol,D. 5 mol,C
+6,37,Nguyên tố nào có cấu hình electron ngoài cùng là ns²np⁶?,Cl,F,O,N,A
+6,38,Hợp chất nào là oxit bazơ?,Na2O,SO2,CaO,MgO,A
+6,39,Giải bài toán: Tính thể tích O2 cần để đốt cháy 5g Mg trong oxi (Biết phương trình: Mg + O2 → MgO),A. 1.12 lít,B. 2.24 lít,C. 4.48 lít,D. 6.24 lít,B
+6,40,Giải bài toán: Tính số mol của NaOH trong dung dịch NaOH có nồng độ 0.3M trong 300ml,A. 0.09 mol,B. 0.1 mol,C. 0.02 mol,D. 0.03 mol,B
+
+
+7,1,Kim loại nào là kim loại kiềm?,Na,K,Cs,Rb,A
+7,2,Nguyên tố nào có số proton là 10?,Ne,F,O,C,A
+7,3,Chất nào là axit mạnh?,HCl,H2SO4,NaOH,CO2,A
+7,4,Nguyên tố nào thuộc nhóm VIIA?,Cl,F,Br,I,A
+7,5,Kim loại nào phản ứng mạnh với nước?,Na,K,Ca,Fe,B
+7,6,Hợp chất nào là muối?,NaCl,NaOH,CO2,H2O,A
+7,7,Giải bài toán: Tính thể tích H2 sinh ra khi cho 0.2mol Na tác dụng với nước. (Biết phương trình phản ứng: 2Na + 2H2O → 2NaOH + H2),A. 1.12 lít,B. 2.24 lít,C. 4.48 lít,D. 11.2 lít,B
+7,8,Chất nào là chất điện li mạnh?,NaCl,H2SO4,KOH,NaOH,A
+7,9,Giải bài toán: Tính số mol NaOH có trong 200ml dung dịch NaOH 2M,A. 0.4 mol,B. 0.2 mol,C. 0.1 mol,D. 0.3 mol,B
+7,10,Giải bài toán: Tính thể tích CO2 sinh ra khi đốt cháy 1g CH4 trong oxi. (Biết phương trình: CH4 + 2O2 → CO2 + 2H2O),A. 11.2 lít,B. 22.4 lít,C. 33.6 lít,D. 44.8 lít,B
+7,11,Nguyên tố nào có độ âm điện lớn nhất?,F,O,Cl,N,A
+7,12,Kim loại nào dẫn điện tốt nhất?,Cu,Ag,Zn,Fe,B
+7,13,Giải bài toán: Tính khối lượng NaOH cần thiết để trung hòa 50ml dung dịch HCl 1M,A. 2g,B. 5g,C. 10g,D. 0.5g,A
+7,14,Nguyên tố nào có bán kính nguyên tử nhỏ nhất?,O,F,Cl,H,A
+7,15,Kim loại nào không phản ứng với H2SO4 loãng?,Cu,Fe,Zn,Na,A
+7,16,Giải bài toán: Tính số mol của K2SO4 trong 100g K2SO4,A. 0.5 mol,B. 1 mol,C. 2 mol,D. 0.25 mol,B
+7,17,Chất nào là muối?,NaCl,CuSO4,NaOH,HCl,A
+7,18,Hợp chất nào có tính lưỡng tính?,Al2O3,Na2O,CaO,CO2,A
+7,19,Giải bài toán: Tính thể tích CO2 cần thiết để đốt cháy 5g CH4 trong oxi (Biết phương trình phản ứng: CH4 + 2O2 → CO2 + 2H2O),A. 6.24 lít,B. 22.4 lít,C. 44.8 lít,D. 33.6 lít,B
+7,20,Giải bài toán: Tính số mol của NaOH trong 200ml dung dịch NaOH 0.5M,A. 0.1 mol,B. 0.2 mol,C. 0.3 mol,D. 0.4 mol,B
+7,21,Kim loại nào có nhiệt độ nóng chảy thấp nhất?,Hg,Fe,Cu,Zn,A
+7,22,Hợp chất nào có liên kết cộng hóa trị?,NaCl,H2O,CO2,Fe2O3,B
+7,23,Nguyên tố nào có bán kính nguyên tử lớn nhất?,Li,Na,K,Rb,D
+7,24,Kim loại nào phản ứng với nước ở nhiệt độ thường?,Na,K,Ca,Fe,A
+7,25,Giải bài toán: Tính khối lượng của NaCl sinh ra khi cho 5g Na tác dụng với Cl2,A. 9g,B. 8g,C. 10g,D. 7g,A
+7,26,Hợp chất nào không dẫn điện?,CH4,NaCl,NaOH,KOH,A
+7,27,Chất nào là ankan?,CH4,C2H4,C2H2,C6H6,A
+7,28,Giải bài toán: Tính thể tích H2O (lít) cần để pha chế dung dịch HCl 1M từ dung dịch HCl 2M,A. 0.5 lít,B. 1 lít,C. 2 lít,D. 3 lít,A
+7,29,Nguyên tố nào có cấu hình electron ngoài cùng là ns²np³?,N,P,As,S,A
+7,30,Hợp chất nào là muối?,NaCl,HCl,NaOH,CO2,A
+7,31,Nguyên tố nào có số oxi hóa cao nhất là +7?,Cl,S,P,N,A
+7,32,Hợp chất nào có tính bazơ mạnh?,NaOH,KOH,Ca(OH)2,Al(OH)3,A
+7,33,Giải bài toán: Tính số mol của NaOH trong dung dịch NaOH có nồng độ 0.4M trong 100ml,A. 0.04 mol,B. 0.1 mol,C. 0.2 mol,D. 0.3 mol,B
+7,34,Chất nào là khí hiếm?,He,Ne,Ar,Xe,A
+7,35,Kim loại nào phản ứng với dung dịch HCl?,Cu,Zn,Fe,Na,A
+7,36,Giải bài toán: Tính số mol của NaCl trong 300g NaCl,A. 5 mol,B. 6 mol,C. 7 mol,D. 8 mol,C
+7,37,Nguyên tố nào có cấu hình electron ngoài cùng là ns²np⁶?,Cl,F,O,N,A
+7,38,Hợp chất nào là oxit bazơ?,Na2O,SO2,CaO,MgO,A
+7,39,Giải bài toán: Tính thể tích O2 cần để đốt cháy 6g Mg trong oxi (Biết phương trình: Mg + O2 → MgO),A. 1.12 lít,B. 2.24 lít,C. 4.48 lít,D. 6.24 lít,B
+7,40,Giải bài toán: Tính số mol của NaOH trong dung dịch NaOH có nồng độ 0.5M trong 250ml,A. 0.125 mol,B. 0.2 mol,C. 0.3 mol,D. 0.4 mol,B
+
+8,1,Kim loại nào là kim loại kiềm?,Na,K,Cs,Rb,A
+8,2,Nguyên tố nào có số proton là 15?,P,S,Si,Cl,A
+8,3,Chất nào là axit mạnh?,HCl,H2SO4,NaOH,CO2,A
+8,4,Nguyên tố nào thuộc nhóm VIIA?,Cl,F,Br,I,A
+8,5,Kim loại nào phản ứng mạnh với nước?,Na,K,Ca,Fe,B
+8,6,Hợp chất nào là muối?,NaCl,NaOH,CO2,H2O,A
+8,7,Giải bài toán: Tính thể tích H2 sinh ra khi cho 0.3mol Na tác dụng với nước. (Biết phương trình phản ứng: 2Na + 2H2O → 2NaOH + H2),A. 1.12 lít,B. 2.24 lít,C. 4.48 lít,D. 11.2 lít,B
+8,8,Chất nào là chất điện li mạnh?,NaCl,H2SO4,KOH,NaOH,A
+8,9,Giải bài toán: Tính số mol NaOH có trong 150ml dung dịch NaOH 3M,A. 0.45 mol,B. 0.3 mol,C. 0.2 mol,D. 0.5 mol,B
+8,10,Giải bài toán: Tính thể tích CO2 sinh ra khi đốt cháy 2g CH4 trong oxi. (Biết phương trình: CH4 + 2O2 → CO2 + 2H2O),A. 11.2 lít,B. 22.4 lít,C. 33.6 lít,D. 44.8 lít,B
+8,11,Nguyên tố nào có độ âm điện lớn nhất?,F,O,Cl,N,A
+8,12,Kim loại nào dẫn điện tốt nhất?,Cu,Ag,Zn,Fe,B
+8,13,Giải bài toán: Tính khối lượng NaOH cần thiết để trung hòa 100ml dung dịch HCl 1M,A. 4g,B. 5g,C. 10g,D. 2g,A
+8,14,Nguyên tố nào có bán kính nguyên tử nhỏ nhất?,O,F,Cl,H,A
+8,15,Kim loại nào không phản ứng với H2SO4 loãng?,Cu,Fe,Zn,Na,A
+8,16,Giải bài toán: Tính số mol của K2SO4 trong 150g K2SO4,A. 0.25 mol,B. 0.5 mol,C. 1 mol,D. 2 mol,B
+8,17,Chất nào là muối?,NaCl,CuSO4,NaOH,HCl,A
+8,18,Hợp chất nào có tính lưỡng tính?,Al2O3,Na2O,CaO,CO2,A
+8,19,Giải bài toán: Tính thể tích CO2 cần thiết để đốt cháy 7g CH4 trong oxi (Biết phương trình phản ứng: CH4 + 2O2 → CO2 + 2H2O),A. 11.2 lít,B. 22.4 lít,C. 33.6 lít,D. 44.8 lít,C
+8,20,Giải bài toán: Tính số mol của NaOH trong 300ml dung dịch NaOH 0.25M,A. 0.075 mol,B. 0.2 mol,C. 0.3 mol,D. 0.1 mol,A
+8,21,Kim loại nào có nhiệt độ nóng chảy thấp nhất?,Hg,Fe,Cu,Zn,A
+8,22,Hợp chất nào có liên kết cộng hóa trị?,NaCl,H2O,CO2,Fe2O3,B
+8,23,Nguyên tố nào có bán kính nguyên tử lớn nhất?,Li,Na,K,Rb,D
+8,24,Kim loại nào phản ứng với nước ở nhiệt độ thường?,Na,K,Ca,Fe,A
+8,25,Giải bài toán: Tính khối lượng của NaCl sinh ra khi cho 8g Na tác dụng với Cl2,A. 14g,B. 18g,C. 20g,D. 24g,A
+8,26,Hợp chất nào không dẫn điện?,CH4,NaCl,NaOH,KOH,A
+8,27,Chất nào là ankan?,CH4,C2H4,C2H2,C6H6,A
+8,28,Giải bài toán: Tính thể tích H2O (lít) cần để pha chế dung dịch HCl 0.5M từ dung dịch HCl 1M,A. 1 lít,B. 2 lít,C. 3 lít,D. 4 lít,A
+8,29,Nguyên tố nào có cấu hình electron ngoài cùng là ns²np³?,N,P,As,S,A
+8,30,Hợp chất nào là muối?,NaCl,HCl,NaOH,CO2,A
+8,31,Nguyên tố nào có số oxi hóa cao nhất là +7?,Cl,S,P,N,A
+8,32,Hợp chất nào có tính bazơ mạnh?,NaOH,KOH,Ca(OH)2,Al(OH)3,A
+8,33,Giải bài toán: Tính số mol của NaOH trong dung dịch NaOH có nồng độ 0.2M trong 500ml,A. 0.1 mol,B. 0.2 mol,C. 0.3 mol,D. 0.4 mol,B
+8,34,Chất nào là khí hiếm?,He,Ne,Ar,Xe,A
+8,35,Kim loại nào phản ứng với dung dịch HCl?,Cu,Zn,Fe,Na,A
+8,36,Giải bài toán: Tính số mol của NaCl trong 100g NaCl,A. 2 mol,B. 4 mol,C. 6 mol,D. 8 mol,B
+8,37,Nguyên tố nào có cấu hình electron ngoài cùng là ns²np⁶?,Cl,F,O,N,A
+8,38,Hợp chất nào là oxit bazơ?,Na2O,SO2,CaO,MgO,A
+8,39,Giải bài toán: Tính thể tích O2 cần để đốt cháy 10g Mg trong oxi (Biết phương trình: Mg + O2 → MgO),A. 1.12 lít,B. 2.24 lít,C. 4.48 lít,D. 6.24 lít,B
+8,40,Giải bài toán: Tính số mol của NaOH trong dung dịch NaOH có nồng độ 0.5M trong 500ml,A. 0.25 mol,B. 0.3 mol,C. 0.5 mol,D. 0.7 mol,A
+
+9,1,Kim loại nào là kim loại kiềm?,Na,K,Cs,Rb,A
+9,2,Nguyên tố nào có số proton là 12?,Mg,Si,Cl,Na,A
+9,3,Chất nào là axit mạnh?,HCl,H2SO4,NaOH,CO2,A
+9,4,Nguyên tố nào thuộc nhóm VIIA?,Cl,F,Br,I,A
+9,5,Kim loại nào phản ứng mạnh với nước?,Na,K,Ca,Fe,B
+9,6,Hợp chất nào là muối?,NaCl,NaOH,CO2,H2O,A
+9,7,Giải bài toán: Tính thể tích H2 sinh ra khi cho 0.4mol Na tác dụng với nước. (Biết phương trình phản ứng: 2Na + 2H2O → 2NaOH + H2),A. 1.12 lít,B. 2.24 lít,C. 4.48 lít,D. 11.2 lít,C
+9,8,Chất nào là chất điện li mạnh?,NaCl,H2SO4,KOH,NaOH,A
+9,9,Giải bài toán: Tính số mol NaOH có trong 300ml dung dịch NaOH 0.4M,A. 0.12 mol,B. 0.13 mol,C. 0.15 mol,D. 0.2 mol,B
+9,10,Giải bài toán: Tính thể tích CO2 sinh ra khi đốt cháy 3g CH4 trong oxi. (Biết phương trình: CH4 + 2O2 → CO2 + 2H2O),A. 11.2 lít,B. 22.4 lít,C. 33.6 lít,D. 44.8 lít,C
+9,11,Nguyên tố nào có độ âm điện lớn nhất?,F,O,Cl,N,A
+9,12,Kim loại nào dẫn điện tốt nhất?,Cu,Ag,Zn,Fe,B
+9,13,Giải bài toán: Tính khối lượng NaOH cần thiết để trung hòa 150ml dung dịch HCl 1M,A. 4g,B. 5g,C. 10g,D. 2g,A
+9,14,Nguyên tố nào có bán kính nguyên tử nhỏ nhất?,O,F,Cl,H,A
+9,15,Kim loại nào không phản ứng với H2SO4 loãng?,Cu,Fe,Zn,Na,A
+9,16,Giải bài toán: Tính số mol của K2SO4 trong 200g K2SO4,A. 0.5 mol,B. 0.75 mol,C. 1 mol,D. 2 mol,B
+9,17,Chất nào là muối?,NaCl,CuSO4,NaOH,HCl,A
+9,18,Hợp chất nào có tính lưỡng tính?,Al2O3,Na2O,CaO,CO2,A
+9,19,Giải bài toán: Tính thể tích CO2 cần thiết để đốt cháy 10g CH4 trong oxi (Biết phương trình phản ứng: CH4 + 2O2 → CO2 + 2H2O),A. 11.2 lít,B. 22.4 lít,C. 33.6 lít,D. 44.8 lít,D
+9,20,Giải bài toán: Tính số mol của NaOH trong 400ml dung dịch NaOH 0.3M,A. 0.12 mol,B. 0.13 mol,C. 0.2 mol,D. 0.1 mol,C
+9,21,Kim loại nào có nhiệt độ nóng chảy thấp nhất?,Hg,Fe,Cu,Zn,A
+9,22,Hợp chất nào có liên kết cộng hóa trị?,NaCl,H2O,CO2,Fe2O3,B
+9,23,Nguyên tố nào có bán kính nguyên tử lớn nhất?,Li,Na,K,Rb,D
+9,24,Kim loại nào phản ứng với nước ở nhiệt độ thường?,Na,K,Ca,Fe,A
+9,25,Giải bài toán: Tính khối lượng của NaCl sinh ra khi cho 6g Na tác dụng với Cl2,A. 9g,B. 12g,C. 15g,D. 17g,A
+9,26,Hợp chất nào không dẫn điện?,CH4,NaCl,NaOH,KOH,A
+9,27,Chất nào là ankan?,CH4,C2H4,C2H2,C6H6,A
+9,28,Giải bài toán: Tính thể tích H2O (lít) cần để pha chế dung dịch HCl 0.7M từ dung dịch HCl 1M,A. 1.5 lít,B. 2 lít,C. 3 lít,D. 4 lít,A
+9,29,Nguyên tố nào có cấu hình electron ngoài cùng là ns²np³?,N,P,As,S,A
+9,30,Hợp chất nào là muối?,NaCl,HCl,NaOH,CO2,A
+9,31,Nguyên tố nào có số oxi hóa cao nhất là +7?,Cl,S,P,N,A
+9,32,Hợp chất nào có tính bazơ mạnh?,NaOH,KOH,Ca(OH)2,Al(OH)3,A
+9,33,Giải bài toán: Tính số mol của NaOH trong dung dịch NaOH có nồng độ 0.6M trong 100ml,A. 0.06 mol,B. 0.1 mol,C. 0.2 mol,D. 0.3 mol,C
+9,34,Chất nào là khí hiếm?,He,Ne,Ar,Xe,A
+9,35,Kim loại nào phản ứng với dung dịch HCl?,Cu,Zn,Fe,Na,A
+9,36,Giải bài toán: Tính số mol của NaCl trong 200g NaCl,A. 3 mol,B. 4 mol,C. 5 mol,D. 6 mol,D
+9,37,Nguyên tố nào có cấu hình electron ngoài cùng là ns²np⁶?,Cl,F,O,N,A
+9,38,Hợp chất nào là oxit bazơ?,Na2O,SO2,CaO,MgO,A
+9,39,Giải bài toán: Tính thể tích O2 cần để đốt cháy 8g Mg trong oxi (Biết phương trình: Mg + O2 → MgO),A. 1.12 lít,B. 2.24 lít,C. 4.48 lít,D. 6.24 lít,B
+9,40,Giải bài toán: Tính số mol của NaOH trong dung dịch NaOH có nồng độ 0.3M trong 400ml,A. 0.12 mol,B. 0.1 mol,C. 0.4 mol,D. 0.5 mol,A

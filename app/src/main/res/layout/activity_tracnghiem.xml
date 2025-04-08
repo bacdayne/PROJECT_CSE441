@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/gradient_background">
+
+    <!-- Tiêu đề -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ĐỀ THI TRẮC NGHIỆM"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="@drawable/title_background" />
+
+    <!-- Thông tin bài thi -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đề thi Hóa học gồm 40 câu\nThời gian làm bài 30 phút\nMỗi câu đúng được 0.25 điểm"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:padding="15dp"
+        android:background="#FFFFFF"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-medium" />
+
+    <!-- Nút Import từ CSV -->
+    <Button
+        android:id="@+id/btnImportCSV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Import từ CSV"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:elevation="4dp" />
+
+    <!-- RecyclerView hiển thị các đề thi -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewExams"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp" />
+</LinearLayout>

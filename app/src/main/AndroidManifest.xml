@@ -29,7 +29,19 @@
             android:theme="@style/Theme.HọcTốtHóaHọc.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".activity_baigiang"
+            android:name=".TracNghiemActivity"
+            android:theme="@style/Theme.HọcTốtHóaHọc.NoActionBar" />
+
+        <activity
+            android:name=".ExamDetailActivity"
+            android:theme="@style/Theme.HọcTốtHóaHọc.NoActionBar"
+            android:exported="false" />
+
+
+        <activity android:name=".ResultDetailActivity" />
+
+        <activity
+            android:name=".BaiGiangActivity"
             android:theme="@style/Theme.HọcTốtHóaHọc.NoActionBar" />
         <activity
             android:name=".MainActivity"

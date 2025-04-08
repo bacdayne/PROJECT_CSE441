@@ -13,5 +13,9 @@
     <color name="pink">#EDA1A1</color>
     <color name="xanh">#4E0A89</color>
     <color name="lavender">#8692f7</color>
+    <!-- Định nghĩa các màu cần thiết -->
+    <color name="colorPrimary">#0288D1</color> <!-- Màu xanh lam đậm -->
+    <color name="colorPrimaryDark">#01579B</color> <!-- Màu xanh lam tối hơn -->
+    <color name="colorAccent">#FF4081</color> <!-- Màu hồng làm điểm nhấn -->
 
 </resources>

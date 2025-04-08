@@ -12,7 +12,7 @@
         android:layout_weight="8"
         android:padding="10dp"
         android:text="TextView"
-        android:textSize="24dp" />
+        android:textSize="20dp" />
 
     <ImageView
         android:id="@+id/imageView"

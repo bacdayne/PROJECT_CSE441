@@ -3,11 +3,9 @@ package com.example.hoahoc;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +17,7 @@ import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 
-public class activity_baigiang extends AppCompatActivity {
+public class BaiGiangActivity extends AppCompatActivity {
 
     private Toolbar toolbar_baigiang;
 //    private SearchView search;
@@ -44,7 +42,7 @@ public class activity_baigiang extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar_baigiang.setNavigationOnClickListener(v -> onBackPressed());
 
-        rcvbaigiang = findViewById(R.id.rcv_baigiang);
+        rcvbaigiang = findViewById(R.id.rcv_baigianglop8);
         btn_lop8 = findViewById(R.id.btn_lop8);
         btn_lop9 = findViewById(R.id.btn_lop9);
 
@@ -63,7 +61,7 @@ public class activity_baigiang extends AppCompatActivity {
         });
 
         adapterbaigiang.setOnItemClickListener(baigiang -> {
-            Intent intent = new Intent(activity_baigiang.this, ChitietBaiGiang.class);
+            Intent intent = new Intent(BaiGiangActivity.this, ChitietBaiGiang.class);
             intent.putExtra("baigiang", baigiang);
             startActivity(intent);
         });
