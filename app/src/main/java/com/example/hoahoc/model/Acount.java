@@ -3,13 +3,10 @@ package com.example.hoahoc.model;
 import java.util.List;
 
 public class Acount {
-    String name, email, username, password;
-    List<String> role;
-
+    String name, email, username, password, role;
     public Acount() {
     }
-    public Acount(String name, String email, String username, String password, List <String> role) {
-        this.name = name;
+    public Acount(String name, String email, String username, String password, String role) {this.name = name;
         this.email = email;
         this.username = username;
         this.password = password;
@@ -40,10 +37,10 @@ public class Acount {
     public void setPassword(String password) {
         this.password = password;
     }
-    public List<String> getRole() {
+    public String getRole() {
         return role;
     }
-    public void setRole(List<String> role) {
+    public void setRole(String  role) {
         this.role = role;
     }
 

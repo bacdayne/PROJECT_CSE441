@@ -14,6 +14,7 @@
         android:layout_height="80dp"
         android:background="#6A1B9A"
         android:elevation="4dp"
+        android:paddingTop="15dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <TextView

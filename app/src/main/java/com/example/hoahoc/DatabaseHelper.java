@@ -56,51 +56,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Tạo bảng bài giảng
-        String CREATE_BAI_GIANG_TABLE = "CREATE TABLE " + TABLE_BAI_GIANG + "("
-                + KEY_BAI_GIANG_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + KEY_BAI_GIANG_TENCHUONG + " TEXT,"
-                + KEY_BAI_GIANG_LOP + " TEXT,"
-                + KEY_BAI_GIANG_THONGTIN + " TEXT" + ")";
-        db.execSQL(CREATE_BAI_GIANG_TABLE);
-
-        // Tạo bảng kỳ thi
-        String CREATE_EXAMS_TABLE = "CREATE TABLE " + TABLE_EXAMS + "("
-                + KEY_EXAM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + KEY_EXAM_NUMBER + " INTEGER" + ")";
-        db.execSQL(CREATE_EXAMS_TABLE);
-
-        // Tạo bảng câu hỏi
-        String CREATE_QUESTIONS_TABLE = "CREATE TABLE " + TABLE_QUESTIONS + "("
-                + KEY_QUESTION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + KEY_EXAM_ID_FK + " INTEGER,"
-                + KEY_QUESTION_TEXT + " TEXT,"
-                + KEY_OPTION_A + " TEXT,"
-                + KEY_OPTION_B + " TEXT,"
-                + KEY_OPTION_C + " TEXT,"
-                + KEY_OPTION_D + " TEXT,"
-                + KEY_CORRECT_ANSWER + " TEXT,"
-                + "FOREIGN KEY(" + KEY_EXAM_ID_FK + ") REFERENCES " + TABLE_EXAMS + "(" + KEY_EXAM_ID + "))";
-        db.execSQL(CREATE_QUESTIONS_TABLE);
+//        // Tạo bảng bài giảng
+//        String CREATE_BAI_GIANG_TABLE = "CREATE TABLE " + TABLE_BAI_GIANG + "("
+//                + KEY_BAI_GIANG_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+//                + KEY_BAI_GIANG_TENCHUONG + " TEXT,"
+//                + KEY_BAI_GIANG_LOP + " TEXT,"
+//                + KEY_BAI_GIANG_THONGTIN + " TEXT" + ")";
+////        db.execSQL(CREATE_BAI_GIANG_TABLE);
+////
+////        // Tạo bảng kỳ thi
+//        String CREATE_EXAMS_TABLE = "CREATE TABLE " + TABLE_EXAMS + "("
+//                + KEY_EXAM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+//                + KEY_EXAM_NUMBER + " INTEGER" + ")";
+//        db.execSQL(CREATE_EXAMS_TABLE);
+//
+//        // Tạo bảng câu hỏi
+//        String CREATE_QUESTIONS_TABLE = "CREATE TABLE " + TABLE_QUESTIONS + "("
+//                + KEY_QUESTION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+//                + KEY_EXAM_ID_FK + " INTEGER,"
+//                + KEY_QUESTION_TEXT + " TEXT,"
+//                + KEY_OPTION_A + " TEXT,"
+//                + KEY_OPTION_B + " TEXT,"
+//                + KEY_OPTION_C + " TEXT,"
+//                + KEY_OPTION_D + " TEXT,"
+//                + KEY_CORRECT_ANSWER + " TEXT,"
+//                + "FOREIGN KEY(" + KEY_EXAM_ID_FK + ") REFERENCES " + TABLE_EXAMS + "(" + KEY_EXAM_ID + "))";
+//        db.execSQL(CREATE_QUESTIONS_TABLE);
 
         // Thêm dữ liệu mặc định cho kỳ thi (nếu cần)
-        for (int i = 1; i <= 9; i++) {
-            ContentValues examValues = new ContentValues();
-            examValues.put(KEY_EXAM_NUMBER, i);
-            long examId = db.insert(TABLE_EXAMS, null, examValues);
-
-            for (int j = 1; j <= 40; j++) {
-                ContentValues questionValues = new ContentValues();
-                questionValues.put(KEY_EXAM_ID_FK, examId);
-                questionValues.put(KEY_QUESTION_TEXT, "Câu hỏi mặc định " + j + " của đề " + i);
-                questionValues.put(KEY_OPTION_A, "A. Mặc định A");
-                questionValues.put(KEY_OPTION_B, "B. Mặc định B");
-                questionValues.put(KEY_OPTION_C, "C. Mặc định C");
-                questionValues.put(KEY_OPTION_D, "D. Mặc định D");
-                questionValues.put(KEY_CORRECT_ANSWER, "A");
-                db.insert(TABLE_QUESTIONS, null, questionValues);
-            }
-        }
+//        for (int i = 1; i <= 9; i++) {
+//            ContentValues examValues = new ContentValues();
+//            examValues.put(KEY_EXAM_NUMBER, i);
+//            long examId = db.insert(TABLE_EXAMS, null, examValues);
+//
+//            for (int j = 1; j <= 40; j++) {
+//                ContentValues questionValues = new ContentValues();
+//                questionValues.put(KEY_EXAM_ID_FK, examId);
+//                questionValues.put(KEY_QUESTION_TEXT, "Câu hỏi mặc định " + j + " của đề " + i);
+//                questionValues.put(KEY_OPTION_A, "A. Mặc định A");
+//                questionValues.put(KEY_OPTION_B, "B. Mặc định B");
+//                questionValues.put(KEY_OPTION_C, "C. Mặc định C");
+//                questionValues.put(KEY_OPTION_D, "D. Mặc định D");
+//                questionValues.put(KEY_CORRECT_ANSWER, "A");
+//                db.insert(TABLE_QUESTIONS, null, questionValues);
+//            }
+//        }
     }
 
     @Override
@@ -115,24 +115,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public ArrayList<baigiang> getDataByLop(String lop) {
         ArrayList<baigiang> listbaigiang = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        db.beginTransaction();
-        try {
-            Cursor cursor = db.query(TABLE_BAI_GIANG, null, KEY_BAI_GIANG_LOP + " = ?", new String[]{lop}, null, null, null, null);
-            if (cursor.getCount() > 0) {
-                while (cursor.moveToNext()) {
-                    @SuppressLint("Range") String id = cursor.getString(cursor.getColumnIndex(KEY_BAI_GIANG_ID));
-                    @SuppressLint("Range") String tenchuong = cursor.getString(cursor.getColumnIndex(KEY_BAI_GIANG_TENCHUONG));
-                    @SuppressLint("Range") String Lop = cursor.getString(cursor.getColumnIndex(KEY_BAI_GIANG_LOP));
-                    @SuppressLint("Range") String thongtin = cursor.getString(cursor.getColumnIndex(KEY_BAI_GIANG_THONGTIN));
-                    listbaigiang.add(new baigiang(id, tenchuong, Lop, thongtin));
+
+        try{
+            Cursor cursor = db.query(TABLE_BAI_GIANG, null, KEY_BAI_GIANG_LOP + "=?", new String[]{lop}, null, null, null);
+            if (cursor.moveToFirst()) {
+                do {
+
+                    baigiang bg = new baigiang(
+                            cursor.getString(0),
+                            cursor.getString(1),
+                            cursor.getString(2),
+                            cursor.getString(3)
+                    );
+                    listbaigiang.add(bg);
+
+
                 }
+                while (cursor.moveToNext());
             }
             cursor.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            db.endTransaction();
-        }
+        }catch (Exception e){
+
+            }
         return listbaigiang;
     }
 

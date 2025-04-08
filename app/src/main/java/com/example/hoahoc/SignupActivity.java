@@ -54,46 +54,35 @@ public class SignupActivity extends AppCompatActivity {
                 String email = signupEmail.getText().toString().trim();
                 String username = signupUsername.getText().toString().trim();
                 String password = signupPassword.getText().toString().trim();
-                List<String> role = new ArrayList<>();
-                role.add("user");  // Hoặc "admin" tùy theo quyền
-
+                // Hoặc "admin" tùy theo quyền
+                String role = "user";
                 if (name.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty()) {
                     Toast.makeText(SignupActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                // Tạo tài khoản bằng Firebase Authentication
-                auth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(task -> {
-                            if (task.isSuccessful()) {
-                                FirebaseUser firebaseUser = auth.getCurrentUser();
-                                String uid = firebaseUser.getUid();
 
-                                // Tạo object người dùng và lưu vào Firebase Realtime Database
-                                Acount acount = new Acount(name, email, username, password, role);
-                                reference.child(uid).setValue(acount)
-                                        .addOnSuccessListener(aVoid -> {
-                                            Toast.makeText(SignupActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                                            // Chuyển sang MainActivity
-                                            Intent intent = new Intent(SignupActivity.this, MainActivity.class);
-                                            startActivity(intent);
-                                            finish();
-                                        })
-                                        .addOnFailureListener(e -> {
-                                            Toast.makeText(SignupActivity.this, "Lỗi khi lưu dữ liệu: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                                        });
+
+
+                // Tạo object người dùng và lưu vào Firebase Realtime Database
+                Acount acount = new Acount(name, email, username, password, role);
+                String uid = reference.push().getKey();
+                reference.child(uid).setValue(acount)
+                        .addOnSuccessListener(aVoid -> {
+                            Toast.makeText(SignupActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                            // Chuyển sang MainActivity
+                            Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(SignupActivity.this, "Lỗi khi lưu dữ liệu: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                        });
 
 
                                 Toast.makeText(SignupActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
 
-                                // Chuyển sang MainActivity
-                                Intent intent = new Intent(SignupActivity.this, MainActivity.class);
-                                startActivity(intent);
-                                finish();
-                            } else {
-                                Toast.makeText(SignupActivity.this, "Lỗi: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                            }
-                        });
+
             }
         });
 
