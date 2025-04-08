@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.hoahoc.model.baigiang;
+import com.example.hoahoc.model.Lesson;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,6 +18,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "AppDatabase.db"; // Tên database chung
@@ -112,8 +113,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Các phương thức truy vấn cho bảng bài giảng
-    public ArrayList<baigiang> getDataByLop(String lop) {
-        ArrayList<baigiang> listbaigiang = new ArrayList<>();
+    public ArrayList<Lesson> getDataByLop(String lop) {
+        ArrayList<Lesson> listbaigiang = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
         try{
@@ -121,7 +122,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                 do {
 
-                    baigiang bg = new baigiang(
+                    Lesson bg = new Lesson(
                             cursor.getString(0),
                             cursor.getString(1),
                             cursor.getString(2),
@@ -136,7 +137,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             cursor.close();
         }catch (Exception e){
 
-            }
+        }
         return listbaigiang;
     }
 
@@ -254,4 +255,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
     }
-}
+
+    public void updateSavedStatus(String id, boolean trangthai) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("trangthai", trangthai ? 1 : 0);
+        db.update("tb_baigiang", values, "id = ?", new String[]{String.valueOf(id)});
+    }
+
+
+
+        public List<Lesson> getSavedLessons() {
+            List<Lesson> list = new ArrayList<>();
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            // Truy vấn các bài đã lưu (isSaved = 1)
+            Cursor cursor = db.rawQuery("SELECT * FROM tb_baigiang WHERE trangthai = 1", null);
+
+            if (cursor.moveToFirst()) {
+                do {
+                    Lesson lesson = new Lesson(
+                            cursor.getString(cursor.getColumnIndexOrThrow("id")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("tenchuong")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("Lop")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("thongtin"))
+                    );
+                    lesson.setSaved(true); // đánh dấu là đã lưu
+                    list.add(lesson);
+                } while (cursor.moveToNext());
+            }
+
+            cursor.close();
+            db.close();
+            return list;
+        }
+
+
+    }

@@ -15,7 +15,7 @@ import com.example.hoahoc.model.Exam;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TracNghiemActivity extends AppCompatActivity{
+public class QuestionsActivity extends AppCompatActivity{
     private RecyclerView recyclerViewExams;
     private ExamAdapter examAdapter;
     private List<Exam> examList;
@@ -24,7 +24,7 @@ public class TracNghiemActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tracnghiem);
+        setContentView(R.layout.activity_questions);
 
         Button btnImportCSV = findViewById(R.id.btnImportCSV);
         recyclerViewExams = findViewById(R.id.recyclerViewExams);

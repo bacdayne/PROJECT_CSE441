@@ -20,7 +20,7 @@
             android:icon="@drawable/setting"
             android:title="Cài đặt" />
         <item
-            android:id="@+id/nav_feedback"
+            android:id="@+id/nav_rate"
             android:icon="@drawable/rating"
             android:title="Đánh giá" />
         <item

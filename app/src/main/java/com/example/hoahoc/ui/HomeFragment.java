@@ -10,9 +10,15 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.hoahoc.BaiGiangActivity;
-import com.example.hoahoc.TracNghiemActivity;
+import com.example.hoahoc.LessonActivity;
+import com.example.hoahoc.QuestionsActivity;
+import com.example.hoahoc.R;
+import com.example.hoahoc.adapter.Photo;
+import com.example.hoahoc.adapter.PhotoViewPagerAdapter;
 import com.example.hoahoc.databinding.FragmentHomeBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -26,14 +32,25 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
         imgbaigiang = binding.imgBaigiang;
         imgtracnghiem = binding.imgTracnghiem;
+        // Khởi tạo danh sách ảnh
+        List<Photo> photoList = new ArrayList<>();
+        photoList.add(new Photo(R.drawable.hoa_1));
+        photoList.add(new Photo(R.drawable.hoa_2));
+        photoList.add(new Photo(R.drawable.hoa_3));
+        photoList.add(new Photo(R.drawable.hoa_4));
+
+        // Gán adapter cho ViewPager
+        PhotoViewPagerAdapter adapter = new PhotoViewPagerAdapter(photoList);
+        binding.viewPager.setAdapter(adapter);
+
 
         imgbaigiang.setOnClickListener(e->{
-            Intent intent = new Intent(getActivity(), BaiGiangActivity.class);
+            Intent intent = new Intent(getActivity(), LessonActivity.class);
             startActivity(intent);
             });
 
         imgtracnghiem.setOnClickListener(e->{
-            Intent intent = new Intent(getActivity(), TracNghiemActivity.class);
+            Intent intent = new Intent(getActivity(), QuestionsActivity.class);
             startActivity(intent);
         });
 

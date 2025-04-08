@@ -1,11 +1,19 @@
 package com.example.hoahoc;
 
+
+
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.RatingBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -74,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Cấu hình Navigation
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_feedback, R.id.nav_save, R.id.nav_setting) // Bỏ nav_share để tránh lỗi
+                R.id.nav_home, R.id.nav_rate, R.id.nav_save, R.id.nav_setting) // Bỏ nav_share để tránh lỗi
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -82,9 +90,17 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+
+
         // Đăng ký sự kiện chọn item trong NavigationView
         navigationView.setNavigationItemSelectedListener(item -> {
             int itemId = item.getItemId();
+
+            if (itemId == R.id.nav_rate) {
+                showRatingDialog();
+                binding.drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
 
             if (itemId == R.id.nav_share) {
                 shareApp();
@@ -106,6 +122,34 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    private void showRatingDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Đánh giá ứng dụng");
+
+        // Layout có RatingBar
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_rating, null);
+        RatingBar ratingBar = dialogView.findViewById(R.id.ratingBar);
+        builder.setView(dialogView);
+
+        builder.setPositiveButton("Gửi", (dialog, which) -> {
+            float rating = ratingBar.getRating();
+
+            if (rating >= 4.5) {
+                Toast.makeText(this, "Cảm ơn bạn rất nhiều vì đánh giá tuyệt vời! 🌟", Toast.LENGTH_SHORT).show();
+            } else if (rating >= 3) {
+                Toast.makeText(this, "Cảm ơn bạn đã đánh giá. Chúng mình sẽ cố gắng cải thiện!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Rất tiếc vì trải nghiệm của bạn chưa tốt. Chúng mình sẽ cải thiện!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.setNegativeButton("Hủy", (dialog, which) -> dialog.dismiss());
+
+        builder.show();
+    }
+
+
+
 
     private List<Photo> getPhotos() {
         List<Photo> photos = new ArrayList<>();
@@ -129,6 +173,9 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
+
 
     private void shareApp() {
         String appLink = "https://play.google.com/store/apps/details?id=com.example.hoahoc"; // Link thực tế

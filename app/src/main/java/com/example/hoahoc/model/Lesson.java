@@ -2,10 +2,11 @@ package com.example.hoahoc.model;
 
 import java.io.Serializable;
 
-public class baigiang implements Serializable {
+public class Lesson implements Serializable {
     private String id, tenchuong, Lop, thongtin;
+    private boolean trangthai;
 
-    public baigiang(String id, String tenchuong, String Lop, String thongtin) {
+    public Lesson(String id, String tenchuong, String Lop, String thongtin) {
         this.id = id;
         this.tenchuong = tenchuong;
         this.Lop = Lop;
@@ -37,5 +38,12 @@ public class baigiang implements Serializable {
     }
     public void setId(String id) {
         this.id = id;
+    }
+
+    public boolean isSaved() {
+        return trangthai;
+    }
+    public void setSaved(boolean saved) {
+        trangthai = saved;
     }
 }

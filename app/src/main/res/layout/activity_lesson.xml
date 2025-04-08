@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#FFFFFF"
     android:orientation="vertical"
-    tools:context=".BaiGiangActivity">
+    tools:context=".LessonActivity">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -39,13 +39,12 @@
             android:src="@drawable/flask_2" />
     </androidx.appcompat.widget.Toolbar>
 
-    <SearchView
-        android:id="@+id/search"
-        android:layout_width="392dp"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_baigiang"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:background="@drawable/search"
-        android:closeIcon="@drawable/searchne"
         android:focusable="false"
         android:iconifiedByDefault="false"
         android:queryHint="Tìm kiếm..."

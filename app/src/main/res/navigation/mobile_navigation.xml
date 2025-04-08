@@ -14,19 +14,15 @@
     <fragment
         android:id="@+id/nav_setting"
         android:name="com.example.hoahoc.ui.SettingFragment"
-        android:label="Setting"
+        android:label="Cài đặt"
         tools:layout="@layout/fragment_setting" />
 
-    <fragment
-        android:id="@+id/nav_feedback"
-        android:name="com.example.hoahoc.ui.RatingFragment"
-        android:label="Rating"
-        tools:layout="@layout/fragment_rating" />
+
 
     <fragment
         android:id="@+id/nav_save"
         android:name="com.example.hoahoc.ui.SaveFragment"
-        android:label="Save"
+        android:label="Bài đã lưu"
         tools:layout="@layout/fragment_save" />
 
 

@@ -11,22 +11,22 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.hoahoc.adapter.BaigiangAdapter;
-import com.example.hoahoc.model.baigiang;
+import com.example.hoahoc.adapter.LessonAdapter;
+import com.example.hoahoc.model.Lesson;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 
-public class BaiGiangActivity extends AppCompatActivity {
+public class LessonActivity extends AppCompatActivity {
 
     private Toolbar toolbar_baigiang;
-//    private SearchView search;
+    //    private SearchView search;
     private RecyclerView rcvbaigiang;
     private MaterialButton btn_lop8;
     private MaterialButton btn_lop9;
-    private BaigiangAdapter adapterbaigiang;
+    private LessonAdapter adapterbaigiang;
     private DatabaseHelper help;
-    ArrayList <baigiang> list;
+    ArrayList <Lesson> list;
 
     private String lop = "Lớp 8"; // Dùng biến String thay vì mảng
 
@@ -35,7 +35,7 @@ public class BaiGiangActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_baigiang);
+        setContentView(R.layout.activity_lesson);
 
         toolbar_baigiang = findViewById(R.id.toolbar_baigiang);
         setSupportActionBar(toolbar_baigiang);
@@ -47,7 +47,7 @@ public class BaiGiangActivity extends AppCompatActivity {
         btn_lop9 = findViewById(R.id.btn_lop9);
 
         list = new ArrayList<>();
-        adapterbaigiang = new BaigiangAdapter(list);
+        adapterbaigiang = new LessonAdapter(list);
 
         rcvbaigiang.setAdapter(adapterbaigiang);
         rcvbaigiang.setLayoutManager(new LinearLayoutManager(this));
@@ -61,7 +61,7 @@ public class BaiGiangActivity extends AppCompatActivity {
         });
 
         adapterbaigiang.setOnItemClickListener(baigiang -> {
-            Intent intent = new Intent(BaiGiangActivity.this, ChitietBaiGiang.class);
+            Intent intent = new Intent(LessonActivity.this, LectureDetailsActivity.class);
             intent.putExtra("baigiang", baigiang);
             startActivity(intent);
         });

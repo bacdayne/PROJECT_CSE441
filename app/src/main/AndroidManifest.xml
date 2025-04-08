@@ -17,6 +17,11 @@
         <activity
             android:name=".LoginActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
 
 
         </activity>
@@ -25,11 +30,11 @@
             android:name=".SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".ChitietBaiGiang"
+            android:name=".LectureDetailsActivity"
             android:theme="@style/Theme.HọcTốtHóaHọc.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".TracNghiemActivity"
+            android:name=".QuestionsActivity"
             android:theme="@style/Theme.HọcTốtHóaHọc.NoActionBar" />
 
         <activity
@@ -41,13 +46,9 @@
         <activity android:name=".ResultDetailActivity" />
 
         <activity
-            android:name=".BaiGiangActivity"
+            android:name=".LessonActivity"
             android:exported="true"
             android:theme="@style/Theme.HọcTốtHóaHọc.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity

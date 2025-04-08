@@ -9,26 +9,33 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hoahoc.R;
-import com.example.hoahoc.model.baigiang;
+import com.example.hoahoc.model.Lesson;
 
 import java.util.List;
 
-public class BaigiangAdapter extends RecyclerView.Adapter<BaigiangAdapter.ViewHolder> {
-    private List<baigiang> baigiangs;
+public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder> {
+    private List<Lesson> Lessons;
 
     private OnItemClickListener listener;
 
-    public BaigiangAdapter(List<baigiang> baigiangs) {
-        this.baigiangs = baigiangs;
+    public LessonAdapter(List<Lesson> Lessons) {
+        this.Lessons = Lessons;
     }
 
     public interface OnItemClickListener {
-        void onItemClick(baigiang baigiang);
+        void onItemClick(Lesson Lesson);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
+
+    public void updateData(List<Lesson> newData) {
+        Lessons.clear();
+        Lessons.addAll(newData);
+        notifyDataSetChanged();
+    }
+
 
 
     // but su kien item
@@ -43,13 +50,13 @@ public class BaigiangAdapter extends RecyclerView.Adapter<BaigiangAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        baigiang baigiang = baigiangs.get(position);
-        holder.bind(baigiang);
+        Lesson Lesson = Lessons.get(position);
+        holder.bind(Lesson);
 
         // su kien click item
         holder.itemView.setOnClickListener(e->{
             if (listener != null) {
-                listener.onItemClick(baigiang);
+                listener.onItemClick(Lesson);
             }
         });
 
@@ -58,7 +65,7 @@ public class BaigiangAdapter extends RecyclerView.Adapter<BaigiangAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return baigiangs.size();
+        return Lessons.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -70,8 +77,8 @@ public class BaigiangAdapter extends RecyclerView.Adapter<BaigiangAdapter.ViewHo
             super(itemView);
             text_chuong = itemView.findViewById(R.id.text_chuong);
         }
-        public void bind(baigiang baigiang) {
-            text_chuong.setText(baigiang.getTenchuong());
+        public void bind(Lesson Lesson) {
+            text_chuong.setText(Lesson.getTenchuong());
         }
     }
 
