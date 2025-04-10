@@ -1,16 +1,14 @@
 package com.example.hoahoc;
 
-
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.Toast;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -27,9 +25,9 @@ import com.example.hoahoc.adapter.Photo;
 import com.example.hoahoc.adapter.PhotoViewPagerAdapter;
 import com.example.hoahoc.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,46 +41,39 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewPager mViewPager;
     private CircleIndicator mCircleIndicator;
-
     private List<Photo> photos;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Kiểm tra đăng nhập
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user == null) {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
+            return;
         }
 
-
-        // Gán layout bằng View Binding
+        // Gán layout bằng ViewBinding
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         setSupportActionBar(binding.appBarMain.toolbarBaigiang1);
 
+        // Khởi tạo ViewPager
         mViewPager = findViewById(R.id.viewPager);
         mCircleIndicator = findViewById(R.id.indicator);
         photos = getPhotos();
-
         PhotoViewPagerAdapter adapter = new PhotoViewPagerAdapter(photos);
         mViewPager.setAdapter(adapter);
-
         mCircleIndicator.setViewPager(mViewPager);
 
-        // Xử lý sự kiện khi bấm Floating Action Button
-
+        // Thiết lập Navigation
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
 
-        // Cấu hình Navigation
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_rate, R.id.nav_save, R.id.nav_setting) // Bỏ nav_share để tránh lỗi
+                R.id.nav_home, R.id.nav_rate, R.id.nav_save, R.id.nav_setting)
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -90,50 +81,86 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-
-
-        // Đăng ký sự kiện chọn item trong NavigationView
+        // Bắt sự kiện chọn item menu
         navigationView.setNavigationItemSelectedListener(item -> {
             int itemId = item.getItemId();
 
             if (itemId == R.id.nav_rate) {
                 showRatingDialog();
-                binding.drawerLayout.closeDrawer(GravityCompat.START);
+                drawer.closeDrawer(GravityCompat.START);
                 return true;
             }
 
             if (itemId == R.id.nav_share) {
                 shareApp();
-                binding.drawerLayout.closeDrawer(GravityCompat.START);
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
+
+            if(itemId == R.id.nav_manage_lesson){
+                Intent intent = new Intent(MainActivity.this, ManageLessonsActivity.class);
+                startActivity(intent);
+                drawer.closeDrawer(GravityCompat.START);
                 return true;
             }
 
             if (itemId == R.id.nav_logout) {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Xóa stack
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 return true;
             }
 
             boolean handled = NavigationUI.onNavDestinationSelected(item, navController);
-            binding.drawerLayout.closeDrawer(GravityCompat.START);
+            drawer.closeDrawer(GravityCompat.START);
             return handled || super.onOptionsItemSelected(item);
         });
 
+        // Ẩn menu admin mặc định
+        Menu menu = binding.navView.getMenu();
+        menu.findItem(R.id.nav_manage_lesson).setVisible(false);
+
+        // Kiểm tra vai trò người dùng
+        checkUserRole();
     }
+
+    private void checkUserRole() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String uid = user.getUid();
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Acount").child(uid);
+
+            userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        String role = snapshot.child("role").getValue(String.class);
+                        if ("admin".equals(role)) {
+                            Menu menu = binding.navView.getMenu();
+                            menu.findItem(R.id.nav_manage_lesson).setVisible(true);
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(MainActivity.this, "Lỗi lấy quyền: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
     private void showRatingDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Đánh giá ứng dụng");
 
-        // Layout có RatingBar
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_rating, null);
         RatingBar ratingBar = dialogView.findViewById(R.id.ratingBar);
         builder.setView(dialogView);
 
         builder.setPositiveButton("Gửi", (dialog, which) -> {
             float rating = ratingBar.getRating();
-
             if (rating >= 4.5) {
                 Toast.makeText(this, "Cảm ơn bạn rất nhiều vì đánh giá tuyệt vời! 🌟", Toast.LENGTH_SHORT).show();
             } else if (rating >= 3) {
@@ -148,9 +175,6 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-
-
-
     private List<Photo> getPhotos() {
         List<Photo> photos = new ArrayList<>();
         photos.add(new Photo(R.drawable.hoa_1));
@@ -159,7 +183,6 @@ public class MainActivity extends AppCompatActivity {
         photos.add(new Photo(R.drawable.hoa_4));
         return photos;
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -170,21 +193,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
     }
 
-
-
-
     private void shareApp() {
-        String appLink = "https://play.google.com/store/apps/details?id=com.example.hoahoc"; // Link thực tế
-
+        String appLink = "https://play.google.com/store/apps/details?id=com.example.hoahoc";
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Tải ứng dụng Hoa Học");
         shareIntent.putExtra(Intent.EXTRA_TEXT, "Tải ngay ứng dụng Hoa Học tại: " + appLink);
-
         startActivity(Intent.createChooser(shareIntent, "Chia sẻ ứng dụng qua"));
     }
 }

@@ -56,6 +56,10 @@
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.HọcTốtHóaHọc.NoActionBar" />
+        <activity
+            android:name=".ManageLessonsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HọcTốtHóaHọc.NoActionBar" />
     </application>
 
 </manifest>

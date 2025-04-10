@@ -3,15 +3,15 @@ package com.example.hoahoc.model;
 import java.io.Serializable;
 
 public class Lesson implements Serializable {
-    private String id, tenchuong, Lop, thongtin;
+    private String tenchuong, Lop, thongtin;
+    private int id;
     private boolean trangthai;
 
     public Lesson(String id, String tenchuong, String Lop, String thongtin) {
-        this.id = id;
+        this.id = Integer.parseInt(id);
         this.tenchuong = tenchuong;
         this.Lop = Lop;
         this.thongtin = thongtin;
-
     }
 
     public String getTenchuong() {
@@ -33,13 +33,12 @@ public class Lesson implements Serializable {
     public void setThongtin(String thongtin) {
         this.thongtin = thongtin;
     }
-    public String getId() {
+    public int getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
-
     public boolean isSaved() {
         return trangthai;
     }

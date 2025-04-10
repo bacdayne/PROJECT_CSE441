@@ -61,16 +61,16 @@ public class LectureDetailsActivity extends AppCompatActivity {
         ImageView iconSave = findViewById(R.id.icon_save);
         DatabaseHelper help = new DatabaseHelper(this);
 
-// Gọi 1 lần để cập nhật icon khi vào màn hình
+
         if (chuong.isSaved()) {
-            iconSave.setImageResource(R.drawable.save); // icon đã lưu
+            iconSave.setImageResource(R.drawable.save);
         } else {
-            iconSave.setImageResource(R.drawable.not_save); // icon chưa lưu
+            iconSave.setImageResource(R.drawable.not_save);
         }
 
-// Bắt sự kiện nhấn nút lưu
+
         iconSave.setOnClickListener(v -> {
-            boolean newStatus = !chuong.isSaved(); // chuyển trạng thái
+            boolean newStatus = !chuong.isSaved();
             help.updateSavedStatus(chuong.getId(), newStatus);
             chuong.setSaved(newStatus);
 

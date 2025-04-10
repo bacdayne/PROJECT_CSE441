@@ -62,7 +62,7 @@ public class LessonActivity extends AppCompatActivity {
 
         adapterbaigiang.setOnItemClickListener(baigiang -> {
             Intent intent = new Intent(LessonActivity.this, LectureDetailsActivity.class);
-            intent.putExtra("baigiang", baigiang);
+            intent.putExtra("baigiang",baigiang);
             startActivity(intent);
         });
 

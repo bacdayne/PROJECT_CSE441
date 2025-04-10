@@ -2,4 +2,7 @@
 <resources>
     <item name="recyclerViewExams" type="id" />
     <item name="btnImportCSV" type="id" />
+    <item name="tvEmail" type="id" />
+    <item name="tvName" type="id" />
+    <item name="tvRole" type="id" />
 </resources>

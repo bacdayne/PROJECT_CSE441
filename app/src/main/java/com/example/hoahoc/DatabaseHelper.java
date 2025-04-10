@@ -256,16 +256,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void updateSavedStatus(String id, boolean trangthai) {
+    public void updateSavedStatus(int lessonId, boolean isSaved) {
         SQLiteDatabase db = this.getWritableDatabase();
+
         ContentValues values = new ContentValues();
-        values.put("trangthai", trangthai ? 1 : 0);
-        db.update("tb_baigiang", values, "id = ?", new String[]{String.valueOf(id)});
+        values.put("trangthai", isSaved ? 1 : 0); // Sửa tại đây
+
+        db.update("tb_baigiang", values, "id = ?", new String[]{String.valueOf(lessonId)});
+        db.close();
     }
 
 
 
-        public List<Lesson> getSavedLessons() {
+
+    public List<Lesson> getSavedLessons() {
             List<Lesson> list = new ArrayList<>();
             SQLiteDatabase db = this.getReadableDatabase();
 
@@ -291,4 +295,74 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
 
+
+    public List<Lesson> getAllLessons() {
+        List<Lesson> list = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM tb_baigiang", null);
+        if (cursor.moveToFirst()) {
+            do {
+                Lesson lesson = new Lesson(
+                        cursor.getString(cursor.getColumnIndexOrThrow("id")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("tenchuong")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("Lop")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("thongtin"))
+                );
+                // Kiểm tra xem có cột "trangthai" không để set isSaved
+                int colIndex = cursor.getColumnIndex("trangthai");
+                if (colIndex != -1) {
+                    int saved = cursor.getInt(colIndex);
+                    lesson.setSaved(saved == 1);
+                }
+                list.add(lesson);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
     }
+    public long insertLesson(Lesson lesson) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("tenchuong", lesson.getTenchuong());
+        values.put("Lop", lesson.getLop());
+        values.put("thongtin", lesson.getThongtin());
+        values.put("trangthai", lesson.isSaved() ? 1 : 0); // nếu có
+        long result = db.insert("tb_baigiang", null, values);
+        db.close();
+        return result;
+    }
+    public int updateLesson(Lesson lesson) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("tenchuong", lesson.getTenchuong());
+        values.put("Lop", lesson.getLop());
+        values.put("thongtin", lesson.getThongtin());
+        values.put("trangthai", lesson.isSaved() ? 1 : 0); // nếu có
+
+        // Lấy id từ đối tượng lesson
+        int lessonId = lesson.getId();
+
+        int result = db.update("tb_baigiang", values, "id = ?", new String[]{String.valueOf(lessonId)});
+        db.close();
+        return result;
+    }
+
+    public void deleteLesson(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("tb_baigiang", "id = ?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    public int getNextLessonId() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT MAX(id) FROM tb_baigiang", null);
+        int nextId = 1;
+        if (cursor.moveToFirst()) {
+            nextId = cursor.getInt(0) + 1;
+        }
+        cursor.close();
+        return nextId;
+    }
+
+}

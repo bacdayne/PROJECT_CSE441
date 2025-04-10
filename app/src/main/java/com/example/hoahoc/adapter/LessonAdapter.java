@@ -3,6 +3,7 @@ package com.example.hoahoc.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,72 +15,104 @@ import com.example.hoahoc.model.Lesson;
 import java.util.List;
 
 public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder> {
-    private List<Lesson> Lessons;
 
-    private OnItemClickListener listener;
+    private List<Lesson> lessons;
+    private boolean isAdmin = false;
 
-    public LessonAdapter(List<Lesson> Lessons) {
-        this.Lessons = Lessons;
-    }
+    private OnItemClickListener clickListener;
+    private OnItemActionListener actionListener;
 
     public interface OnItemClickListener {
-        void onItemClick(Lesson Lesson);
+        void onItemClick(Lesson lesson);
+    }
+
+    public interface OnItemActionListener {
+        void onEdit(Lesson lesson);
+        void onDelete(Lesson lesson);
+    }
+
+    public LessonAdapter(List<Lesson> lessons) {
+        this.lessons = lessons;
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
-        this.listener = listener;
+        this.clickListener = listener;
+    }
+
+    public void setOnItemActionListener(OnItemActionListener listener) {
+        this.actionListener = listener;
+    }
+
+    public void setAdminMode(boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 
     public void updateData(List<Lesson> newData) {
-        Lessons.clear();
-        Lessons.addAll(newData);
+        lessons.clear();
+        lessons.addAll(newData);
         notifyDataSetChanged();
     }
-
-
-
-    // but su kien item
-
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_chi_tiet_chuong, parent, false);
+        View view;
+        if (isAdmin) {
+            view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_chi_tiet_admin, parent, false);
+        } else {
+            view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_chi_tiet_chuong, parent, false);
+        }
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Lesson Lesson = Lessons.get(position);
-        holder.bind(Lesson);
+        Lesson lesson = lessons.get(position);
+        holder.bind(lesson);
 
-        // su kien click item
-        holder.itemView.setOnClickListener(e->{
-            if (listener != null) {
-                listener.onItemClick(Lesson);
+        holder.itemView.setOnClickListener(v -> {
+            if (clickListener != null) {
+                clickListener.onItemClick(lesson);
             }
         });
 
-
+        if (isAdmin) {
+            holder.btnEdit.setOnClickListener(v -> {
+                if (actionListener != null) {
+                    actionListener.onEdit(lesson);
+                }
+            });
+            holder.btnDelete.setOnClickListener(v -> {
+                if (actionListener != null) {
+                    actionListener.onDelete(lesson);
+                }
+            });
+        }
     }
 
     @Override
     public int getItemCount() {
-        return Lessons.size();
+        return lessons.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView text_chuong;
-
+        ImageButton btnEdit, btnDelete;
 
         public ViewHolder(@NonNull View itemView) {
-
             super(itemView);
             text_chuong = itemView.findViewById(R.id.text_chuong);
+
+            if (isAdmin) {
+                btnEdit = itemView.findViewById(R.id.btn_edit);
+                btnDelete = itemView.findViewById(R.id.btn_delete);
+            }
         }
-        public void bind(Lesson Lesson) {
-            text_chuong.setText(Lesson.getTenchuong());
+
+        public void bind(Lesson lesson) {
+            text_chuong.setText(lesson.getTenchuong());
         }
     }
-
 }
