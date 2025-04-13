@@ -1,5 +1,6 @@
 package com.example.hoahoc;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,14 +67,73 @@ public class ResultDetailActivity extends AppCompatActivity {
             holder.tvOptionD.setText("D. " + question.getOptionD());
             holder.tvCorrectAnswer.setText("Đáp án đúng: " + question.getCorrectAnswer());
 
+            // Đặt màu mặc định cho tất cả đáp án (xám nhạt, đồng bộ với item_result.xml)
+            holder.tvOptionA.setBackgroundColor(Color.parseColor("#E0E0E0"));
+            holder.tvOptionB.setBackgroundColor(Color.parseColor("#E0E0E0"));
+            holder.tvOptionC.setBackgroundColor(Color.parseColor("#E0E0E0"));
+            holder.tvOptionD.setBackgroundColor(Color.parseColor("#E0E0E0"));
+
+            // Đánh dấu đáp án đúng (màu xanh nhạt)
+            String correctAnswer = question.getCorrectAnswer();
+            if (correctAnswer != null) {
+                switch (correctAnswer) {
+                    case "A":
+                        holder.tvOptionA.setBackgroundColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_green_light));
+                        break;
+                    case "B":
+                        holder.tvOptionB.setBackgroundColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_green_light));
+                        break;
+                    case "C":
+                        holder.tvOptionC.setBackgroundColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_green_light));
+                        break;
+                    case "D":
+                        holder.tvOptionD.setBackgroundColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_green_light));
+                        break;
+                    default:
+                        holder.tvCorrectAnswer.setText("Đáp án đúng: Không xác định");
+                        break;
+                }
+            }
+
+            // Đánh dấu đáp án người dùng chọn
             if (userAnswer != null) {
                 holder.tvUserAnswer.setText("Đáp án bạn chọn: " + userAnswer);
-                if (userAnswer.equals(question.getCorrectAnswer())) {
+                if (userAnswer.equals(correctAnswer)) {
+                    // Đáp án đúng
                     holder.tvStatus.setText("Kết quả: Đúng");
                     holder.tvStatus.setTextColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_green_dark));
+                    switch (userAnswer) {
+                        case "A":
+                            holder.tvOptionA.setBackgroundColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_green_light));
+                            break;
+                        case "B":
+                            holder.tvOptionB.setBackgroundColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_green_light));
+                            break;
+                        case "C":
+                            holder.tvOptionC.setBackgroundColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_green_light));
+                            break;
+                        case "D":
+                            holder.tvOptionD.setBackgroundColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_green_light));
+                            break;
+                    }
                 } else {
+                    // Đáp án sai
                     holder.tvStatus.setText("Kết quả: Sai");
                     holder.tvStatus.setTextColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_red_dark));
+                    switch (userAnswer) {
+                        case "A":
+                            holder.tvOptionA.setBackgroundColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_red_light));
+                            break;
+                        case "B":
+                            holder.tvOptionB.setBackgroundColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_red_light));
+                            break;
+                        case "C":
+                            holder.tvOptionC.setBackgroundColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_red_light));
+                            break;
+                        case "D":
+                            holder.tvOptionD.setBackgroundColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_red_light));
+                            break;
+                    }
                 }
             } else {
                 holder.tvUserAnswer.setText("Bạn chưa trả lời câu này");
@@ -104,4 +164,3 @@ public class ResultDetailActivity extends AppCompatActivity {
         }
     }
 }
-
