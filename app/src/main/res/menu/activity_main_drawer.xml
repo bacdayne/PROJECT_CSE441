@@ -32,6 +32,10 @@
             android:icon="@drawable/lesson"
             android:title="Quản lý bài giảng"/>
         <item
+            android:id="@+id/nav_manage_questions"
+            android:icon="@drawable/lesson"
+            android:title="Quản lý trắc nghiệm" />
+        <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/logout"
             android:title="Đăng xuất" />

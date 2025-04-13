@@ -24,7 +24,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
         loginEmail = findViewById(R.id.login_email);
         loginPassword = findViewById(R.id.login_password);
         loginButton = findViewById(R.id.login_button);

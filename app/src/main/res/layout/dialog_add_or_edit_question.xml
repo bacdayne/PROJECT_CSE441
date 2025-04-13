@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:background="@drawable/dialog_background"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thêm câu hỏi"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <Spinner
+            android:id="@+id/spinnerExamId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/edtQuestionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="Nội dung câu hỏi"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:minLines="2" />
+
+        <EditText
+            android:id="@+id/edtOptionA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="Đáp án A"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/edtOptionB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="Đáp án B"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/edtOptionC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="Đáp án C"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/edtOptionD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="Đáp án D"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/edtCorrectAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Đáp án đúng (A, B, C, D)"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/btnHuy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hủy"
+                android:layout_marginEnd="12dp"
+                android:backgroundTint="@color/design_default_color_error"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/btnLuu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lưu"
+                android:backgroundTint="@color/design_default_color_primary"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,4 +1,4 @@
-package com.example.hoahoc; // Hoặc một package chung
+package com.example.hoahoc;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -8,7 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.hoahoc.model.ExamHistory;
 import com.example.hoahoc.model.Lesson;
+import com.example.hoahoc.model.Question;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,8 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "AppDatabase.db"; // Tên database chung
-    private static final int DATABASE_VERSION = 3; // Tăng version khi thay đổi schema
+    private static final String DATABASE_NAME = "AppDatabase.db";
+    private static final int DATABASE_VERSION = 4;
     private static final String DB_PATH_SUFFIX = "/databases/";
     private final Context context;
 
@@ -49,6 +51,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_OPTION_D = "option_d";
     private static final String KEY_CORRECT_ANSWER = "correct_answer";
 
+    // Bảng lịch sử bài thi
+    private static final String TABLE_EXAM_HISTORY = "exam_history";
+    private static final String KEY_HISTORY_ID = "history_id";
+    private static final String KEY_EXAM_ID_HISTORY = "exam_id";
+    private static final String KEY_COMPLETION_TIME = "completion_time";
+    private static final String KEY_TOTAL_CORRECT = "total_correct";
+    private static final String KEY_SCORE = "score";
+    private static final String KEY_QUESTION_IDS = "question_ids";
+    private static final String KEY_USER_ANSWERS = "user_answers";
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
@@ -57,59 +69,170 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-//        // Tạo bảng bài giảng
-//        String CREATE_BAI_GIANG_TABLE = "CREATE TABLE " + TABLE_BAI_GIANG + "("
-//                + KEY_BAI_GIANG_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-//                + KEY_BAI_GIANG_TENCHUONG + " TEXT,"
-//                + KEY_BAI_GIANG_LOP + " TEXT,"
-//                + KEY_BAI_GIANG_THONGTIN + " TEXT" + ")";
-////        db.execSQL(CREATE_BAI_GIANG_TABLE);
-////
-////        // Tạo bảng kỳ thi
-//        String CREATE_EXAMS_TABLE = "CREATE TABLE " + TABLE_EXAMS + "("
-//                + KEY_EXAM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-//                + KEY_EXAM_NUMBER + " INTEGER" + ")";
-//        db.execSQL(CREATE_EXAMS_TABLE);
-//
-//        // Tạo bảng câu hỏi
-//        String CREATE_QUESTIONS_TABLE = "CREATE TABLE " + TABLE_QUESTIONS + "("
-//                + KEY_QUESTION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-//                + KEY_EXAM_ID_FK + " INTEGER,"
-//                + KEY_QUESTION_TEXT + " TEXT,"
-//                + KEY_OPTION_A + " TEXT,"
-//                + KEY_OPTION_B + " TEXT,"
-//                + KEY_OPTION_C + " TEXT,"
-//                + KEY_OPTION_D + " TEXT,"
-//                + KEY_CORRECT_ANSWER + " TEXT,"
-//                + "FOREIGN KEY(" + KEY_EXAM_ID_FK + ") REFERENCES " + TABLE_EXAMS + "(" + KEY_EXAM_ID + "))";
-//        db.execSQL(CREATE_QUESTIONS_TABLE);
+        String CREATE_BAI_GIANG_TABLE = "CREATE TABLE " + TABLE_BAI_GIANG + "("
+                + KEY_BAI_GIANG_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + KEY_BAI_GIANG_TENCHUONG + " TEXT,"
+                + KEY_BAI_GIANG_LOP + " TEXT,"
+                + KEY_BAI_GIANG_THONGTIN + " TEXT" + ")";
+        db.execSQL(CREATE_BAI_GIANG_TABLE);
 
-        // Thêm dữ liệu mặc định cho kỳ thi (nếu cần)
-//        for (int i = 1; i <= 9; i++) {
-//            ContentValues examValues = new ContentValues();
-//            examValues.put(KEY_EXAM_NUMBER, i);
-//            long examId = db.insert(TABLE_EXAMS, null, examValues);
-//
-//            for (int j = 1; j <= 40; j++) {
-//                ContentValues questionValues = new ContentValues();
-//                questionValues.put(KEY_EXAM_ID_FK, examId);
-//                questionValues.put(KEY_QUESTION_TEXT, "Câu hỏi mặc định " + j + " của đề " + i);
-//                questionValues.put(KEY_OPTION_A, "A. Mặc định A");
-//                questionValues.put(KEY_OPTION_B, "B. Mặc định B");
-//                questionValues.put(KEY_OPTION_C, "C. Mặc định C");
-//                questionValues.put(KEY_OPTION_D, "D. Mặc định D");
-//                questionValues.put(KEY_CORRECT_ANSWER, "A");
-//                db.insert(TABLE_QUESTIONS, null, questionValues);
-//            }
-//        }
+        String CREATE_EXAMS_TABLE = "CREATE TABLE " + TABLE_EXAMS + "("
+                + KEY_EXAM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + KEY_EXAM_NUMBER + " INTEGER" + ")";
+        db.execSQL(CREATE_EXAMS_TABLE);
+
+        String CREATE_QUESTIONS_TABLE = "CREATE TABLE " + TABLE_QUESTIONS + "("
+                + KEY_QUESTION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + KEY_EXAM_ID_FK + " INTEGER,"
+                + KEY_QUESTION_TEXT + " TEXT,"
+                + KEY_OPTION_A + " TEXT,"
+                + KEY_OPTION_B + " TEXT,"
+                + KEY_OPTION_C + " TEXT,"
+                + KEY_OPTION_D + " TEXT,"
+                + KEY_CORRECT_ANSWER + " TEXT,"
+                + "FOREIGN KEY(" + KEY_EXAM_ID_FK + ") REFERENCES " + TABLE_EXAMS + "(" + KEY_EXAM_ID + "))";
+        db.execSQL(CREATE_QUESTIONS_TABLE);
+
+        String CREATE_EXAM_HISTORY_TABLE = "CREATE TABLE " + TABLE_EXAM_HISTORY + "("
+                + KEY_HISTORY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + KEY_EXAM_ID_HISTORY + " INTEGER,"
+                + KEY_COMPLETION_TIME + " TEXT,"
+                + KEY_TOTAL_CORRECT + " INTEGER,"
+                + KEY_SCORE + " REAL,"
+                + KEY_QUESTION_IDS + " TEXT,"
+                + KEY_USER_ANSWERS + " TEXT,"
+                + "FOREIGN KEY(" + KEY_EXAM_ID_HISTORY + ") REFERENCES " + TABLE_EXAMS + "(" + KEY_EXAM_ID + "))";
+        db.execSQL(CREATE_EXAM_HISTORY_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_BAI_GIANG);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUESTIONS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_EXAMS);
-        onCreate(db);
+        if (oldVersion < 4) {
+            String CREATE_EXAM_HISTORY_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_EXAM_HISTORY + "("
+                    + KEY_HISTORY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + KEY_EXAM_ID_HISTORY + " INTEGER,"
+                    + KEY_COMPLETION_TIME + " TEXT,"
+                    + KEY_TOTAL_CORRECT + " INTEGER,"
+                    + KEY_SCORE + " REAL,"
+                    + KEY_QUESTION_IDS + " TEXT,"
+                    + KEY_USER_ANSWERS + " TEXT,"
+                    + "FOREIGN KEY(" + KEY_EXAM_ID_HISTORY + ") REFERENCES " + TABLE_EXAMS + "(" + KEY_EXAM_ID + "))";
+            db.execSQL(CREATE_EXAM_HISTORY_TABLE);
+        }
+    }
+
+    // Thêm câu hỏi
+    public long addQuestion(Question question) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_EXAM_ID_FK, question.getExamId());
+        values.put(KEY_QUESTION_TEXT, question.getQuestionText());
+        values.put(KEY_OPTION_A, question.getOptionA());
+        values.put(KEY_OPTION_B, question.getOptionB());
+        values.put(KEY_OPTION_C, question.getOptionC());
+        values.put(KEY_OPTION_D, question.getOptionD());
+        values.put(KEY_CORRECT_ANSWER, question.getCorrectAnswer());
+
+        long result = db.insert(TABLE_QUESTIONS, null, values);
+        db.close();
+        return result;
+    }
+
+    // Sửa câu hỏi
+    public int updateQuestion(Question question) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_EXAM_ID_FK, question.getExamId());
+        values.put(KEY_QUESTION_TEXT, question.getQuestionText());
+        values.put(KEY_OPTION_A, question.getOptionA());
+        values.put(KEY_OPTION_B, question.getOptionB());
+        values.put(KEY_OPTION_C, question.getOptionC());
+        values.put(KEY_OPTION_D, question.getOptionD());
+        values.put(KEY_CORRECT_ANSWER, question.getCorrectAnswer());
+
+        int result = db.update(TABLE_QUESTIONS, values, KEY_QUESTION_ID + "=?", new String[]{String.valueOf(question.getId())});
+        db.close();
+        return result;
+    }
+
+    // Xóa câu hỏi
+    public void deleteQuestion(int questionId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_QUESTIONS, KEY_QUESTION_ID + "=?", new String[]{String.valueOf(questionId)});
+        db.close();
+    }
+
+    // Lấy tất cả câu hỏi theo examId
+    public List<Question> getQuestionsByExamIdList(int examId) {
+        List<Question> questions = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_QUESTIONS + " WHERE " + KEY_EXAM_ID_FK + "=?", new String[]{String.valueOf(examId)});
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") Question question = new Question(
+                        cursor.getInt(cursor.getColumnIndex(KEY_QUESTION_ID)),
+                        cursor.getInt(cursor.getColumnIndex(KEY_EXAM_ID_FK)),
+                        cursor.getString(cursor.getColumnIndex(KEY_QUESTION_TEXT)),
+                        cursor.getString(cursor.getColumnIndex(KEY_OPTION_A)),
+                        cursor.getString(cursor.getColumnIndex(KEY_OPTION_B)),
+                        cursor.getString(cursor.getColumnIndex(KEY_OPTION_C)),
+                        cursor.getString(cursor.getColumnIndex(KEY_OPTION_D)),
+                        cursor.getString(cursor.getColumnIndex(KEY_CORRECT_ANSWER))
+                );
+                questions.add(question);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return questions;
+    }
+
+    // Lưu lịch sử bài thi
+    public long saveExamHistory(ExamHistory history) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_EXAM_ID_HISTORY, history.getExamId());
+        values.put(KEY_COMPLETION_TIME, history.getCompletionTime());
+        values.put(KEY_TOTAL_CORRECT, history.getTotalCorrect());
+        values.put(KEY_SCORE, history.getScore());
+        values.put(KEY_QUESTION_IDS, history.getQuestionIds());
+        values.put(KEY_USER_ANSWERS, history.getUserAnswers());
+
+        long result = db.insert(TABLE_EXAM_HISTORY, null, values);
+        db.close();
+        return result;
+    }
+
+    // Lấy tất cả lịch sử bài thi
+    public List<ExamHistory> getAllExamHistory() {
+        List<ExamHistory> historyList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_EXAM_HISTORY, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int historyId = cursor.getInt(cursor.getColumnIndex(KEY_HISTORY_ID));
+                @SuppressLint("Range") int examId = cursor.getInt(cursor.getColumnIndex(KEY_EXAM_ID_HISTORY));
+                @SuppressLint("Range") String completionTime = cursor.getString(cursor.getColumnIndex(KEY_COMPLETION_TIME));
+                @SuppressLint("Range") int totalCorrect = cursor.getInt(cursor.getColumnIndex(KEY_TOTAL_CORRECT));
+                @SuppressLint("Range") double score = cursor.getDouble(cursor.getColumnIndex(KEY_SCORE));
+                @SuppressLint("Range") String questionIds = cursor.getString(cursor.getColumnIndex(KEY_QUESTION_IDS));
+                @SuppressLint("Range") String userAnswers = cursor.getString(cursor.getColumnIndex(KEY_USER_ANSWERS));
+
+                ExamHistory history = new ExamHistory(historyId, examId, completionTime, totalCorrect, score, questionIds, userAnswers);
+                historyList.add(history);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return historyList;
+    }
+
+    // Xóa lịch sử bài thi
+    public void deleteExamHistory(int historyId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_EXAM_HISTORY, KEY_HISTORY_ID + "=?", new String[]{String.valueOf(historyId)});
+        db.close();
     }
 
     // Các phương thức truy vấn cho bảng bài giảng
@@ -117,11 +240,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<Lesson> listbaigiang = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        try{
+        try {
             Cursor cursor = db.query(TABLE_BAI_GIANG, null, KEY_BAI_GIANG_LOP + "=?", new String[]{lop}, null, null, null);
             if (cursor.moveToFirst()) {
                 do {
-
                     Lesson bg = new Lesson(
                             cursor.getString(0),
                             cursor.getString(1),
@@ -129,14 +251,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                             cursor.getString(3)
                     );
                     listbaigiang.add(bg);
-
-
-                }
-                while (cursor.moveToNext());
+                } while (cursor.moveToNext());
             }
             cursor.close();
-        }catch (Exception e){
-
+        } catch (Exception e) {
         }
         return listbaigiang;
     }
@@ -208,7 +326,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             try {
                 checkDB = SQLiteDatabase.openDatabase(dbFile.getAbsolutePath(), null, SQLiteDatabase.OPEN_READONLY);
                 Cursor cursor = checkDB.rawQuery("SELECT name FROM sqlite_master WHERE type='table'", null);
-                // Kiểm tra xem cả hai bảng có tồn tại không
                 boolean baiGiangExists = false;
                 boolean examsExists = false;
                 boolean questionsExists = false;
@@ -225,7 +342,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     Log.e("DatabaseHelper", "❌ Một hoặc nhiều bảng bị thiếu! Xóa và copy lại.");
                     dbFile.delete();
                 }
-
             } catch (Exception e) {
                 Log.e("DatabaseHelper", "❌ Không thể mở database, xóa và copy lại.");
                 dbFile.delete();
@@ -258,43 +374,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void updateSavedStatus(int lessonId, boolean isSaved) {
         SQLiteDatabase db = this.getWritableDatabase();
-
         ContentValues values = new ContentValues();
-        values.put("trangthai", isSaved ? 1 : 0); // Sửa tại đây
-
+        values.put("trangthai", isSaved ? 1 : 0);
         db.update("tb_baigiang", values, "id = ?", new String[]{String.valueOf(lessonId)});
         db.close();
     }
 
-
-
-
     public List<Lesson> getSavedLessons() {
-            List<Lesson> list = new ArrayList<>();
-            SQLiteDatabase db = this.getReadableDatabase();
+        List<Lesson> list = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM tb_baigiang WHERE trangthai = 1", null);
 
-            // Truy vấn các bài đã lưu (isSaved = 1)
-            Cursor cursor = db.rawQuery("SELECT * FROM tb_baigiang WHERE trangthai = 1", null);
-
-            if (cursor.moveToFirst()) {
-                do {
-                    Lesson lesson = new Lesson(
-                            cursor.getString(cursor.getColumnIndexOrThrow("id")),
-                            cursor.getString(cursor.getColumnIndexOrThrow("tenchuong")),
-                            cursor.getString(cursor.getColumnIndexOrThrow("Lop")),
-                            cursor.getString(cursor.getColumnIndexOrThrow("thongtin"))
-                    );
-                    lesson.setSaved(true); // đánh dấu là đã lưu
-                    list.add(lesson);
-                } while (cursor.moveToNext());
-            }
-
-            cursor.close();
-            db.close();
-            return list;
+        if (cursor.moveToFirst()) {
+            do {
+                Lesson lesson = new Lesson(
+                        cursor.getString(cursor.getColumnIndexOrThrow("id")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("tenchuong")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("Lop")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("thongtin"))
+                );
+                lesson.setSaved(true);
+                list.add(lesson);
+            } while (cursor.moveToNext());
         }
-
-
+        cursor.close();
+        db.close();
+        return list;
+    }
 
     public List<Lesson> getAllLessons() {
         List<Lesson> list = new ArrayList<>();
@@ -308,7 +414,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         cursor.getString(cursor.getColumnIndexOrThrow("Lop")),
                         cursor.getString(cursor.getColumnIndexOrThrow("thongtin"))
                 );
-                // Kiểm tra xem có cột "trangthai" không để set isSaved
                 int colIndex = cursor.getColumnIndex("trangthai");
                 if (colIndex != -1) {
                     int saved = cursor.getInt(colIndex);
@@ -321,28 +426,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return list;
     }
+
     public long insertLesson(Lesson lesson) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("tenchuong", lesson.getTenchuong());
         values.put("Lop", lesson.getLop());
         values.put("thongtin", lesson.getThongtin());
-        values.put("trangthai", lesson.isSaved() ? 1 : 0); // nếu có
+        values.put("trangthai", lesson.isSaved() ? 1 : 0);
         long result = db.insert("tb_baigiang", null, values);
         db.close();
         return result;
     }
+
     public int updateLesson(Lesson lesson) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("tenchuong", lesson.getTenchuong());
         values.put("Lop", lesson.getLop());
         values.put("thongtin", lesson.getThongtin());
-        values.put("trangthai", lesson.isSaved() ? 1 : 0); // nếu có
+        values.put("trangthai", lesson.isSaved() ? 1 : 0);
 
-        // Lấy id từ đối tượng lesson
         int lessonId = lesson.getId();
-
         int result = db.update("tb_baigiang", values, "id = ?", new String[]{String.valueOf(lessonId)});
         db.close();
         return result;
@@ -364,5 +469,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return nextId;
     }
-
 }

@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.Toast;
-import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -97,8 +97,15 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
 
-            if(itemId == R.id.nav_manage_lesson){
+            if (itemId == R.id.nav_manage_lesson) {
                 Intent intent = new Intent(MainActivity.this, ManageLessonsActivity.class);
+                startActivity(intent);
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
+
+            if (itemId == R.id.nav_manage_questions) {
+                Intent intent = new Intent(MainActivity.this, ManageQuestionsActivity.class);
                 startActivity(intent);
                 drawer.closeDrawer(GravityCompat.START);
                 return true;
@@ -120,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         // Ẩn menu admin mặc định
         Menu menu = binding.navView.getMenu();
         menu.findItem(R.id.nav_manage_lesson).setVisible(false);
+        menu.findItem(R.id.nav_manage_questions).setVisible(false);
 
         // Kiểm tra vai trò người dùng
         checkUserRole();
@@ -139,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
                         if ("admin".equals(role)) {
                             Menu menu = binding.navView.getMenu();
                             menu.findItem(R.id.nav_manage_lesson).setVisible(true);
+                            menu.findItem(R.id.nav_manage_questions).setVisible(true);
                         }
                     }
                 }

@@ -12,11 +12,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hoahoc.model.ExamHistory;
 import com.example.hoahoc.model.Question;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 public class ExamDetailActivity extends AppCompatActivity {
@@ -25,16 +29,16 @@ public class ExamDetailActivity extends AppCompatActivity {
     private TextView tvOptionA, tvOptionB, tvOptionC, tvOptionD;
     private Button btnSelectA, btnSelectB, btnSelectC, btnSelectD, btnPrevious, btnStop, btnNext;
     private DatabaseHelper dbHelper;
-    private List<Question> questionList; // Danh sách câu hỏi gốc
-    private List<Question> shuffledQuestionList; // Danh sách câu hỏi đã đảo
+    private List<Question> questionList;
+    private List<Question> shuffledQuestionList;
     private int currentQuestionIndex = 0;
     private int examId;
     private CountDownTimer countDownTimer;
-    private List<String> userAnswers; // Lưu đáp án người dùng chọn
-    private List<Boolean> answeredStatus; // Theo dõi trạng thái đã trả lời của từng câu
-    private int totalCorrect = 0; // Số câu trả lời đúng
-    private int totalAnswered = 0; // Số câu đã trả lời
-    private static final int QUESTIONS_PER_EXAM = 40; // Số câu hỏi mỗi đề (có thể thay đổi)
+    private List<String> userAnswers;
+    private List<Boolean> answeredStatus;
+    private int totalCorrect = 0;
+    private int totalAnswered = 0;
+    private static final int QUESTIONS_PER_EXAM = 40;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,15 +66,14 @@ public class ExamDetailActivity extends AppCompatActivity {
         userAnswers = new ArrayList<>();
         answeredStatus = new ArrayList<>();
 
-        // Khởi tạo danh sách đáp án người dùng và trạng thái trả lời
         examId = getIntent().getIntExtra("EXAM_ID", 1);
         tvExamTitle.setText("ĐỀ SỐ " + examId);
         loadQuestions();
-        generateExam(); // Sinh đề mới hoặc đảo thứ tự câu hỏi
+        generateExam();
 
         for (int i = 0; i < shuffledQuestionList.size(); i++) {
-            userAnswers.add(null); // Chưa trả lời
-            answeredStatus.add(false); // Chưa được trả lời
+            userAnswers.add(null);
+            answeredStatus.add(false);
         }
 
         displayQuestion();
@@ -117,42 +120,31 @@ public class ExamDetailActivity extends AppCompatActivity {
     }
 
     private void generateExam() {
-        // Phương pháp 1: Chọn ngẫu nhiên QUESTIONS_PER_EXAM câu hỏi từ questionList
         if (questionList.isEmpty()) {
             Toast.makeText(this, "Không có câu hỏi nào cho đề này!", Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
 
-        // Sao chép danh sách câu hỏi gốc
         List<Question> tempList = new ArrayList<>(questionList);
-
-        // Nếu số câu hỏi ít hơn số câu cần cho một đề, sử dụng tất cả câu hỏi
         int questionsToSelect = Math.min(QUESTIONS_PER_EXAM, tempList.size());
-
-        // Chọn ngẫu nhiên QUESTIONS_PER_EXAM câu hỏi
         Collections.shuffle(tempList, new Random());
         shuffledQuestionList.clear();
         for (int i = 0; i < questionsToSelect; i++) {
             Question question = tempList.get(i);
-            // Đảo thứ tự đáp án
             question = shuffleOptions(question);
             shuffledQuestionList.add(question);
         }
-
-        // Cập nhật số câu hỏi hiển thị
         tvQuestionCount.setText(shuffledQuestionList.size() + " câu");
     }
 
     private Question shuffleOptions(Question question) {
-        // Tạo danh sách các đáp án
         List<String> options = new ArrayList<>();
         options.add(question.getOptionA());
         options.add(question.getOptionB());
         options.add(question.getOptionC());
         options.add(question.getOptionD());
 
-        // Lưu đáp án đúng
         String correctAnswer = question.getCorrectAnswer();
         String correctOption = "";
         switch (correctAnswer) {
@@ -170,10 +162,7 @@ public class ExamDetailActivity extends AppCompatActivity {
                 break;
         }
 
-        // Đảo thứ tự đáp án
         Collections.shuffle(options, new Random());
-
-        // Cập nhật lại đáp án đúng dựa trên vị trí mới
         String newCorrectAnswer = "";
         for (int i = 0; i < options.size(); i++) {
             if (options.get(i).equals(correctOption)) {
@@ -194,15 +183,14 @@ public class ExamDetailActivity extends AppCompatActivity {
             }
         }
 
-        // Tạo câu hỏi mới với đáp án đã đảo
         return new Question(
                 question.getId(),
                 question.getExamId(),
                 question.getQuestionText(),
-                options.get(0), // Option A
-                options.get(1), // Option B
-                options.get(2), // Option C
-                options.get(3), // Option D
+                options.get(0),
+                options.get(1),
+                options.get(2),
+                options.get(3),
                 newCorrectAnswer
         );
     }
@@ -220,10 +208,8 @@ public class ExamDetailActivity extends AppCompatActivity {
         tvOptionC.setText("C. " + question.getOptionC());
         tvOptionD.setText("D. " + question.getOptionD());
 
-        // Đặt lại trạng thái màu của các nút
         resetButtonColors();
 
-        // Nếu câu hỏi đã được trả lời, tô màu nút tương ứng
         String selectedAnswer = userAnswers.get(currentQuestionIndex);
         if (selectedAnswer != null) {
             switch (selectedAnswer) {
@@ -255,26 +241,20 @@ public class ExamDetailActivity extends AppCompatActivity {
 
     private void checkAnswer(String selectedAnswer) {
         Question question = shuffledQuestionList.get(currentQuestionIndex);
-        String previousAnswer = userAnswers.get(currentQuestionIndex); // Đáp án trước đó
+        String previousAnswer = userAnswers.get(currentQuestionIndex);
 
-        // Nếu câu hỏi đã được trả lời trước đó, kiểm tra xem đáp án trước đó có đúng không
         if (answeredStatus.get(currentQuestionIndex)) {
             if (previousAnswer != null && previousAnswer.equals(question.getCorrectAnswer())) {
-                totalCorrect--; // Giảm số câu đúng nếu đáp án trước đó đúng
+                totalCorrect--;
             }
         } else {
-            // Nếu đây là lần đầu trả lời câu hỏi, tăng số câu đã trả lời
             totalAnswered++;
-            answeredStatus.set(currentQuestionIndex, true); // Đánh dấu câu hỏi đã được trả lời
+            answeredStatus.set(currentQuestionIndex, true);
         }
 
-        // Lưu đáp án mới
         userAnswers.set(currentQuestionIndex, selectedAnswer);
-
-        // Đặt lại màu của tất cả các nút trước khi tô màu nút được chọn
         resetButtonColors();
 
-        // Tô màu nút được chọn
         switch (selectedAnswer) {
             case "A":
                 btnSelectA.setSelected(true);
@@ -290,9 +270,8 @@ public class ExamDetailActivity extends AppCompatActivity {
                 break;
         }
 
-        // Kiểm tra đáp án mới
         if (selectedAnswer.equals(question.getCorrectAnswer())) {
-            totalCorrect++; // Tăng số câu đúng nếu đáp án mới đúng
+            totalCorrect++;
             Toast.makeText(this, "Đúng!", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Sai! Đáp án đúng là: " + question.getCorrectAnswer(), Toast.LENGTH_SHORT).show();
@@ -318,7 +297,7 @@ public class ExamDetailActivity extends AppCompatActivity {
     }
 
     private void showSubmitDialog() {
-        countDownTimer.cancel(); // Tạm dừng đồng hồ
+        countDownTimer.cancel();
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.CustomDialogTheme);
         builder.setTitle("Xác nhận nộp bài")
                 .setMessage("Bạn có chắc chắn muốn nộp bài không? Sau khi nộp, bạn không thể tiếp tục làm bài.")
@@ -336,8 +315,34 @@ public class ExamDetailActivity extends AppCompatActivity {
     }
 
     private void showResultDialog() {
-        // Tính điểm: mỗi câu đúng 0.25 điểm
         double score = totalCorrect * 0.25;
+
+        // Lưu lịch sử bài thi
+        String completionTime = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(new Date());
+        StringBuilder questionIds = new StringBuilder();
+        for (Question question : shuffledQuestionList) {
+            questionIds.append(question.getId()).append(",");
+        }
+        StringBuilder answers = new StringBuilder();
+        for (String answer : userAnswers) {
+            answers.append(answer != null ? answer : "N/A").append(",");
+        }
+        ExamHistory history = new ExamHistory(
+                0, // historyId sẽ được tự động tạo
+                examId,
+                completionTime,
+                totalCorrect,
+                score,
+                questionIds.toString(),
+                answers.toString()
+        );
+        long result = dbHelper.saveExamHistory(history);
+        if (result != -1) {
+            Toast.makeText(this, "Lịch sử bài thi đã được lưu!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Lỗi khi lưu lịch sử bài thi!", Toast.LENGTH_SHORT).show();
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.CustomDialogTheme);
         builder.setTitle("Kết quả bài thi")
                 .setMessage("Bạn đã hoàn thành bài thi!\n\nSố câu hoàn thành: " + totalAnswered + "\nSố câu đúng: " + totalCorrect + "\nĐiểm số: " + score)
@@ -350,7 +355,7 @@ public class ExamDetailActivity extends AppCompatActivity {
                 })
                 .setNegativeButton("Thoát", (dialog, which) -> finish())
                 .setCancelable(false)
-                .setIcon(android.R.drawable.ic_dialog_info) // Thêm biểu tượng
+                .setIcon(android.R.drawable.ic_dialog_info)
                 .show();
     }
 

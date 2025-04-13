@@ -25,7 +25,9 @@ public class ResultDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_detail);
-
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
         recyclerViewResults = findViewById(R.id.recyclerViewResults);
         recyclerViewResults.setLayoutManager(new LinearLayoutManager(this));
 
