@@ -67,7 +67,7 @@ public class ResultDetailActivity extends AppCompatActivity {
             holder.tvOptionD.setText("D. " + question.getOptionD());
             holder.tvCorrectAnswer.setText("Đáp án đúng: " + question.getCorrectAnswer());
 
-            // Đặt màu mặc định cho tất cả đáp án (xám nhạt, đồng bộ với item_result.xml)
+            // Đặt màu mặc định cho tất cả đáp án (xám nhạt)
             holder.tvOptionA.setBackgroundColor(Color.parseColor("#E0E0E0"));
             holder.tvOptionB.setBackgroundColor(Color.parseColor("#E0E0E0"));
             holder.tvOptionC.setBackgroundColor(Color.parseColor("#E0E0E0"));
@@ -75,7 +75,8 @@ public class ResultDetailActivity extends AppCompatActivity {
 
             // Đánh dấu đáp án đúng (màu xanh nhạt)
             String correctAnswer = question.getCorrectAnswer();
-            if (correctAnswer != null) {
+            boolean isValidCorrectAnswer = correctAnswer != null && (correctAnswer.equals("A") || correctAnswer.equals("B") || correctAnswer.equals("C") || correctAnswer.equals("D"));
+            if (isValidCorrectAnswer) {
                 switch (correctAnswer) {
                     case "A":
                         holder.tvOptionA.setBackgroundColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_green_light));
@@ -89,16 +90,16 @@ public class ResultDetailActivity extends AppCompatActivity {
                     case "D":
                         holder.tvOptionD.setBackgroundColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_green_light));
                         break;
-                    default:
-                        holder.tvCorrectAnswer.setText("Đáp án đúng: Không xác định");
-                        break;
                 }
+            } else {
+                holder.tvCorrectAnswer.setText("Đáp án đúng: Không xác định");
             }
 
             // Đánh dấu đáp án người dùng chọn
-            if (userAnswer != null) {
+            boolean isValidAnswer = userAnswer != null && (userAnswer.equals("A") || userAnswer.equals("B") || userAnswer.equals("C") || userAnswer.equals("D"));
+            if (isValidAnswer) {
                 holder.tvUserAnswer.setText("Đáp án bạn chọn: " + userAnswer);
-                if (userAnswer.equals(correctAnswer)) {
+                if (isValidCorrectAnswer && userAnswer.equals(correctAnswer)) {
                     // Đáp án đúng
                     holder.tvStatus.setText("Kết quả: Đúng");
                     holder.tvStatus.setTextColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_green_dark));

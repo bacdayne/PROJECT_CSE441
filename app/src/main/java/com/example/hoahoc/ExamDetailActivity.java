@@ -160,6 +160,10 @@ public class ExamDetailActivity extends AppCompatActivity {
             case "D":
                 correctOption = question.getOptionD();
                 break;
+            default:
+                // Nếu correctAnswer không hợp lệ, báo lỗi và trả về câu hỏi gốc
+                Toast.makeText(this, "Dữ liệu câu hỏi không hợp lệ: Đáp án đúng không xác định!", Toast.LENGTH_SHORT).show();
+                return question;
         }
 
         Collections.shuffle(options, new Random());
@@ -180,7 +184,14 @@ public class ExamDetailActivity extends AppCompatActivity {
                         newCorrectAnswer = "D";
                         break;
                 }
+                break; // Thoát vòng lặp sau khi tìm thấy
             }
+        }
+
+        // Kiểm tra nếu không tìm thấy correctOption
+        if (newCorrectAnswer.isEmpty()) {
+            Toast.makeText(this, "Lỗi xáo trộn đáp án: Không tìm thấy đáp án đúng!", Toast.LENGTH_SHORT).show();
+            return question; // Trả về câu hỏi gốc nếu có lỗi
         }
 
         return new Question(
@@ -347,10 +358,10 @@ public class ExamDetailActivity extends AppCompatActivity {
         builder.setTitle("Kết quả bài thi")
                 .setMessage("Bạn đã hoàn thành bài thi!\n\nSố câu hoàn thành: " + totalAnswered + "\nSố câu đúng: " + totalCorrect + "\nĐiểm số: " + score)
                 .setPositiveButton("Xem chi tiết", (dialog, which) -> {
-                    Intent intent = new Intent(ExamDetailActivity.this, ResultDetailActivity.class);
-                    intent.putExtra("QUESTION_LIST", new ArrayList<>(shuffledQuestionList));
-                    intent.putStringArrayListExtra("USER_ANSWERS", new ArrayList<>(userAnswers));
-                    startActivity(intent);
+                    Intent detailIntent = new Intent(ExamDetailActivity.this, ResultDetailActivity.class);
+                    detailIntent.putExtra("QUESTION_LIST", new ArrayList<>(shuffledQuestionList));
+                    detailIntent.putStringArrayListExtra("USER_ANSWERS", new ArrayList<>(userAnswers));
+                    startActivity(detailIntent);
                     finish();
                 })
                 .setNegativeButton("Thoát", (dialog, which) -> finish())
