@@ -1,4 +1,4 @@
-package com.example.hoahoc.ui;
+package com.example.hoahoc.view.view.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +10,11 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.hoahoc.LessonActivity;
-import com.example.hoahoc.QuestionsActivity;
+import com.example.hoahoc.view.view.activity.LessonActivity;
+import com.example.hoahoc.view.view.activity.QuestionsActivity;
 import com.example.hoahoc.R;
-import com.example.hoahoc.adapter.Photo;
-import com.example.hoahoc.adapter.PhotoViewPagerAdapter;
+import com.example.hoahoc.view.view.adapter.Photo;
+import com.example.hoahoc.view.view.adapter.PhotoViewPagerAdapter;
 import com.example.hoahoc.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;

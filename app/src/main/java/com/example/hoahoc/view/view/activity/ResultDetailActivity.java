@@ -1,4 +1,4 @@
-package com.example.hoahoc;
+package com.example.hoahoc.view.view.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hoahoc.R;
 import com.example.hoahoc.model.Question;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.hoahoc.adapter;
+package com.example.hoahoc.view.view.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.hoahoc.ExamDetailActivity;
+import com.example.hoahoc.view.view.activity.ExamDetailActivity;
 import com.example.hoahoc.R;
 import com.example.hoahoc.model.Exam;
 

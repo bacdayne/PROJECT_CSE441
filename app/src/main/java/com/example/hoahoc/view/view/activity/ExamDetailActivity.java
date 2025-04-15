@@ -1,4 +1,4 @@
-package com.example.hoahoc;
+package com.example.hoahoc.view.view.activity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hoahoc.controller.DatabaseHelper;
+import com.example.hoahoc.R;
 import com.example.hoahoc.model.ExamHistory;
 import com.example.hoahoc.model.Question;
 

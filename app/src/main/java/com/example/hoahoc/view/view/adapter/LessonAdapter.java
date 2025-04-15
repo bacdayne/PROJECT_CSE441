@@ -1,4 +1,4 @@
-package com.example.hoahoc.adapter;
+package com.example.hoahoc.view.view.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.hoahoc.R;
 import com.example.hoahoc.model.Lesson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder> {
@@ -22,6 +23,19 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
     private OnItemClickListener clickListener;
     private OnItemActionListener actionListener;
 
+    private ArrayList<Lesson> filteredList;
+
+    public LessonAdapter(List<Lesson> lessons) {
+        this.lessons = lessons;
+        this.filteredList = new ArrayList<>(lessons);  // Initialize filtered list with original data
+    }
+
+    public void filterList(ArrayList<Lesson> filteredList) {
+        // Cập nhật danh sách bài giảng đã lọc
+        this.lessons = filteredList;
+        notifyDataSetChanged();  // Thông báo adapter cập nhật dữ liệu
+    }
+
     public interface OnItemClickListener {
         void onItemClick(Lesson lesson);
     }
@@ -29,10 +43,6 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
     public interface OnItemActionListener {
         void onEdit(Lesson lesson);
         void onDelete(Lesson lesson);
-    }
-
-    public LessonAdapter(List<Lesson> lessons) {
-        this.lessons = lessons;
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {

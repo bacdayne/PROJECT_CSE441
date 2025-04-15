@@ -1,4 +1,4 @@
-package com.example.hoahoc.adapter;
+package com.example.hoahoc.view.view.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;

@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="#F5F5F5"
     android:padding="16dp"
-    tools:context=".ui.SettingFragment">
+    tools:context=".view.view.fragment.SettingFragment">
 
     <!-- Tiêu đề "Lịch sử bài thi" -->
     <androidx.cardview.widget.CardView

@@ -1,17 +1,19 @@
-package com.example.hoahoc;
+package com.example.hoahoc.view.view.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.hoahoc.adapter.LessonAdapter;
+import com.example.hoahoc.controller.DatabaseHelper;
+import com.example.hoahoc.R;
+import com.example.hoahoc.view.view.adapter.LessonAdapter;
 import com.example.hoahoc.model.Lesson;
 import com.google.android.material.button.MaterialButton;
 
@@ -20,7 +22,7 @@ import java.util.ArrayList;
 public class LessonActivity extends AppCompatActivity {
 
     private Toolbar toolbar_baigiang;
-    //    private SearchView search;
+    private SearchView search;
     private RecyclerView rcvbaigiang;
     private MaterialButton btn_lop8;
     private MaterialButton btn_lop9;
@@ -45,6 +47,7 @@ public class LessonActivity extends AppCompatActivity {
         rcvbaigiang = findViewById(R.id.rcv_baigianglop8);
         btn_lop8 = findViewById(R.id.btn_lop8);
         btn_lop9 = findViewById(R.id.btn_lop9);
+        search = findViewById(R.id.search_baigiang);
 
         list = new ArrayList<>();
         adapterbaigiang = new LessonAdapter(list);
@@ -72,6 +75,25 @@ public class LessonActivity extends AppCompatActivity {
             list.clear();
             list.addAll(help.getDataByLop("Lớp 9"));
             adapterbaigiang.notifyDataSetChanged();
+        });
+
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ArrayList<Lesson> filteredList = new ArrayList<>();
+                for (Lesson lesson : list) {
+                    if (lesson.getTenchuong().toLowerCase().contains(newText.toLowerCase())) {
+                        filteredList.add(lesson);
+                    }
+                }
+                adapterbaigiang.filterList(filteredList);
+                return true;
+            }
         });
     }
 

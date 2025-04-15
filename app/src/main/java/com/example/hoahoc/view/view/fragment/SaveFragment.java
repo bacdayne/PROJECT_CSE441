@@ -1,4 +1,4 @@
-package com.example.hoahoc.ui;
+package com.example.hoahoc.view.view.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,11 +11,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.hoahoc.LectureDetailsActivity;
-import com.example.hoahoc.adapter.LessonAdapter;
+import com.example.hoahoc.view.view.activity.LectureDetailsActivity;
+import com.example.hoahoc.view.view.adapter.LessonAdapter;
 import com.example.hoahoc.databinding.FragmentSaveBinding;
 import com.example.hoahoc.model.Lesson;
-import com.example.hoahoc.DatabaseHelper;
+import com.example.hoahoc.controller.DatabaseHelper;
 
 import java.util.List;
 

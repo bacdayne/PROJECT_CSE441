@@ -8,7 +8,7 @@
     android:background="@drawable/back2"
     android:orientation="vertical"
 
-    tools:context=".ui.HomeFragment"
+    tools:context=".view.view.fragment.HomeFragment"
     tools:ignore="MissingClass">
 
     <androidx.viewpager.widget.ViewPager

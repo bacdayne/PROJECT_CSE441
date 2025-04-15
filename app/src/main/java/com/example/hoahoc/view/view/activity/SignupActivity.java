@@ -1,4 +1,4 @@
-package com.example.hoahoc;
+package com.example.hoahoc.view.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hoahoc.R;
 import com.example.hoahoc.model.Acount;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

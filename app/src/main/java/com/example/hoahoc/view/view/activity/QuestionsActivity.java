@@ -1,4 +1,4 @@
-package com.example.hoahoc;
+package com.example.hoahoc.view.view.activity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.database.Cursor;
 
-import com.example.hoahoc.adapter.ExamAdapter;
+import com.example.hoahoc.controller.DatabaseHelper;
+import com.example.hoahoc.R;
+import com.example.hoahoc.view.view.adapter.ExamAdapter;
 import com.example.hoahoc.model.Exam;
 
 import java.util.ArrayList;

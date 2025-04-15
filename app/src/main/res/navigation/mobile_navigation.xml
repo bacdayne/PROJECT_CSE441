@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.hoahoc.ui.HomeFragment"
+        android:name="com.example.hoahoc.view.view.fragment.HomeFragment"
         android:label="HỌC TỐT HÓA HỌC"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_setting"
-        android:name="com.example.hoahoc.ui.SettingFragment"
+        android:name="com.example.hoahoc.view.view.fragment.SettingFragment"
         android:label="Cài đặt"
         tools:layout="@layout/fragment_setting" />
 
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/nav_save"
-        android:name="com.example.hoahoc.ui.SaveFragment"
+        android:name="com.example.hoahoc.view.view.fragment.SaveFragment"
         android:label="Bài đã lưu"
         tools:layout="@layout/fragment_save" />
 

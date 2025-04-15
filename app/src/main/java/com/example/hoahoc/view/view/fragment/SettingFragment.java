@@ -1,4 +1,4 @@
-package com.example.hoahoc.ui;
+package com.example.hoahoc.view.view.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,10 +13,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.hoahoc.DatabaseHelper;
+import com.example.hoahoc.controller.DatabaseHelper;
 import com.example.hoahoc.R;
-import com.example.hoahoc.ResultDetailActivity;
-import com.example.hoahoc.adapter.ExamHistoryAdapter;
+import com.example.hoahoc.view.view.activity.ResultDetailActivity;
+import com.example.hoahoc.view.view.adapter.ExamHistoryAdapter;
 import com.example.hoahoc.databinding.FragmentSettingBinding;
 import com.example.hoahoc.model.ExamHistory;
 import com.example.hoahoc.model.Question;

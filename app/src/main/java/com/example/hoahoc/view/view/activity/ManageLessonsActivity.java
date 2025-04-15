@@ -1,21 +1,22 @@
-package com.example.hoahoc;
+package com.example.hoahoc.view.view.activity;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
-import androidx.annotation.NonNull;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.hoahoc.adapter.LessonAdapter;
+import com.example.hoahoc.controller.DatabaseHelper;
+import com.example.hoahoc.R;
+import com.example.hoahoc.view.view.adapter.LessonAdapter;
 import com.example.hoahoc.model.Lesson;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ManageLessonsActivity extends AppCompatActivity {
